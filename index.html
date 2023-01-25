@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,73 +10,71 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- materialize google Icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Normalize CSS reset -->
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
-    
-    
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+    <div class="wrap">
+        <header>
+            <nav class="nav-bar">
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">Logo</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="#">Favorites</a></li>
+                    </ul>
+                </div>
+            </nav>
+        
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="#">Favorites</a></li>
+            </ul>
+        </header>
+
+        <!-- add your content below -->
+        <div class="content">
+
+            
+            <div class="search-section">
+                <div class="search-area">
+                    <input class="search-input" type="text" placeholder="enter your state..">
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            Laguna Beach Project
+        </footer>
+    </div>
+
+
+
+
     <!-- Jquery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- AOS Animation JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JS -->
     <script src="./assets/js/script.js"></script>
-</body>
-    <title>Laguna Project</title>
-    
-  </head>
-  <body>
-
-    <div class="wrap">
-        <!-- header -->
-        <header>
-            <nav>
-                <div class="nav-wrapper">
-                  <a href="#!" class="brand-logo">Logo</a>
-                  <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                  <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">Javascript</a></li>
-                    <li><a href="mobile.html">Mobile</a></li>
-                  </ul>
-                </div>
-              </nav>
-            
-              <ul class="sidenav" id="mobile-demo">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">Javascript</a></li>
-                <li><a href="mobile.html">Mobile</a></li>
-              </ul>
-        </header>
-
-        
-        <div id="content">
-          <!-- Add your website content here -->
-            <div class="search-area">
-                <input type="text" placeholder="Enter a state...">
-            </div>
-
-        </div>
-        <div id="footer">
-          <p>Copyright ©2022 Laguna Industries</p>
-        </div>
-
-    </div>
     <script>
-        // Or with jQuery
 
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
     </script>
-  </body>
+</body>
+
 </html>
