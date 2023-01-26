@@ -70,3 +70,9 @@ header{
   white-space: nowrap;
   text-indent: 101%;
 }
+
+
+/* Css below are for detailed.html */
+.detailed-content{
+  padding-top: 70px;
+}
