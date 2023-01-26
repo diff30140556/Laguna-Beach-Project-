@@ -1,4 +1,6 @@
-*,*::after,*::before{
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -6,7 +8,7 @@
 }
 
 /* Add CSS for fixed header and footer */
-      
+
 #footer {
   position: fixed;
   bottom: 0;
@@ -15,17 +17,17 @@
   color: white;
 }
 
-.content{
+.content {
   height: 100vh;
-  background: url(https://images.unsplash.com/photo-1515601915049-08c8836c2204?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)center no-repeat;
+  background: url(https://images.unsplash.com/photo-1515601915049-08c8836c2204?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
+    center no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-.search-area{
+.search-area {
   border: 1px solid #000;
   height: 200px;
   width: 550px;
@@ -36,13 +38,13 @@
   border-radius: 60px;
 }
 
-.search-input{
+.search-input {
   border: 1px solid #000;
   width: 400px !important;
   color: #fff;
 }
 
-.footer{
+.footer {
   text-align: center;
   border: 1px solid #000;
   padding: 10px 0;
@@ -50,29 +52,58 @@
   color: #fff;
 }
 
-.nav-bar{
+.nav-bar {
   background: rgba(0, 0, 0, 0.3);
   padding: 0 20px;
 }
-header{
+header {
   position: fixed;
   width: 100%;
 }
 
-.brand-logo{
+.brand-logo {
   background: #000;
-  overflow:hidden;
+  overflow: hidden;
   width: 90px;
 }
 
-.title{
+.title {
   font-size: 1em;
   white-space: nowrap;
   text-indent: 101%;
 }
 
+<<<<<<< HEAD
 
 /* Css below are for detailed.html */
 .detailed-content{
   padding-top: 70px;
 }
+=======
+/* Css below for results.html */
+.resultsList li {
+  height: 500px;
+  border: 1px solid black;
+  display: flex;
+  align-items: flex-end;
+  /* justify-content: center; */
+}
+
+.description {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 40px 0;
+}
+
+.parkName {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.parkDescription {
+  border: 1px solid black;
+  padding: 10px;
+}
+>>>>>>> main
