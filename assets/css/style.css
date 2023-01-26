@@ -52,5 +52,21 @@
 
 .nav-bar{
   background: rgba(0, 0, 0, 0.3);
+  padding: 0 20px;
+}
+header{
   position: fixed;
+  width: 100%;
+}
+
+.brand-logo{
+  background: #000;
+  overflow:hidden;
+  width: 90px;
+}
+
+.title{
+  font-size: 1em;
+  white-space: nowrap;
+  text-indent: 101%;
 }
