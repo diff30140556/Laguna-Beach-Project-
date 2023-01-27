@@ -15,5 +15,4 @@ function search() {
 
 
 
-
 searchBtnEl.addEventListener('click', search);
