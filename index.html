@@ -1,89 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Laguna Beach Project</title>
 
     <!-- Compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <!-- FontAwesome CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- materialize google Icon -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!-- Normalize CSS reset -->
-    <link
-      rel="stylesheet"
-      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
-    />
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
 
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="wrap">
-      <header>
-        <nav class="nav-bar">
-          <div class="nav-wrapper">
-            <a href="#" class="brand-logo">
-              <h1 class="title">Laguna Beach Project</h1>
-            </a>
+        <header>
+            <nav class="nav-bar">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">
+                        <h1 class="title">Laguna Beach Project</h1>
+                    </a>
 
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-              ><i class="material-icons">menu</i></a
-            >
-            <ul class="right hide-on-med-and-down">
-              <li><a href="#">Favorites</a></li>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="#">Favorites</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="#">Favorites</a></li>
             </ul>
-          </div>
-        </nav>
+        </header>
 
-        <ul class="sidenav" id="mobile-demo">
-          <li><a href="#">Favorites</a></li>
-        </ul>
-      </header>
-
-      <!-- add your content below -->
-      <div class="content">
-        <div class="search-section">
-          <div class="search-area">
-            <input
-              class="search-input"
-              type="text"
-              placeholder="enter your state.."
-            />
-          </div>
+        <!-- add your content below -->
+        <div class="content">
+            <div class="search-section">
+                <div class="search-area">
+                    <input class="search-input" type="text" placeholder="enter your state.." />
+                    <a class="waves-effect waves-light btn search-btn">button</a>
+                </div>
+            </div>
         </div>
-      </div>
-      <footer class="footer">Laguna Beach Project</footer>
+        <footer class="footer">Laguna Beach Project</footer>
     </div>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> main
     <!-- Jquery CDN -->
-    <script
-      src="https://code.jquery.com/jquery-3.6.3.min.js"
-      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- AOS Animation JS -->
@@ -91,9 +67,10 @@
     <!-- Custom JS -->
     <script src="./assets/js/script.js"></script>
     <script>
-      $(document).ready(function () {
-        $(".sidenav").sidenav();
-      });
+        $(document).ready(function () {
+            $(".sidenav").sidenav();
+        });
     </script>
-  </body>
+</body>
+
 </html>
