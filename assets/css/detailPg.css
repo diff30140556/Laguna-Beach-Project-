@@ -1,0 +1,197 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Add CSS for fixed header and footer */
+header {
+    height: 100px;
+    width: 100%;
+}
+
+.nav-bar {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+}
+
+.brand-logo {
+    background: #000;
+    overflow: hidden;
+    width: 90px;
+    height: 100%;
+}
+
+.title {
+    font-size: 1em;
+    white-space: nowrap;
+    text-indent: 101%;
+    margin: 0;
+}
+
+.footer {
+    text-align: center;
+    border: 1px solid #000;
+    padding: 10px 0;
+    background: rgb(31, 31, 31);
+    color: #fff;
+}
+
+.wrap{
+    background: rgb(255, 213, 186);
+}
+
+
+/* Css below for detailPage.html */
+.container {
+    border: 1px solid #000;
+}
+
+.detailed-title {
+    border: 1px solid #000;
+    margin-bottom: 70px;
+}
+
+.banner {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.description {
+    position: absolute;
+    width: 45%;
+    height: 80%;
+    left: -8%;
+    top: -8%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    background: rgba(0, 0, 0,0.4);
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 20px;
+}
+
+.slideShowPic {
+    width: 70%;
+    transform: translateX(5%);
+}
+
+.swiper {
+    border-radius: 10px;
+    height: 400px;
+}
+
+.swiper-slide img{
+    width: 100%;
+    height: 100%;
+}
+.bg{
+    background-size: cover;
+}
+
+.info-content{
+    width: 95%;
+}
+
+.info-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-content li a{
+    display: block;
+    text-decoration: unset;
+    border: 1px solid #ddd;
+    padding: 10px 20px 20px;
+    color: #005999;
+    background: rgba(155, 154, 154, 0.6);
+    transition: ease-in-out 0.15s;
+    margin-top: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+.info{
+    margin-bottom: 60px;
+}
+
+.info-content li a:hover, .info-content li a.active{
+    background: rgba(125, 125, 125, 0.7);
+}
+.info-content li a.active{
+    border-radius: 6px 6px 0px 0px;
+}
+
+.info-content li p{
+    border: 1px solid #ddd;
+    padding: 15px;
+    display: none;
+    font-size: 18px;
+    line-height: 26px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 0px 0px 6px 6px;
+}
+
+.embedMap{
+    display: flex;
+    justify-content: center;
+}
+
+.thingsItem{
+    height: 350px;
+    display: flex;
+    margin: 40px 0;
+    box-shadow: rgb(116, 115, 115) 0 1px 5px 0.2px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.thingsItem:nth-child(even){
+    flex-direction: row-reverse; 
+}
+
+.thingsItem:hover .thingsImage img{
+    transform: scale(1.1);
+}
+
+.thingsDescription{
+    padding: 0 20px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.thingsDescription p{
+    font-size: 1.2em;
+}
+.thingsImage{
+    overflow: hidden;
+    padding: unset !important;
+}
+.thingsImage img{
+    width: 100%;
+    height:350px;
+    transition: 0.4s ease-in-out;
+}
+
+.forecast{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.forecast li{
+    width: 100px;
+    height: 200px;
+    border: 1px solid #000;
+    margin-left: 0 !important;
+}
