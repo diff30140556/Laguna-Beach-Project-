@@ -49,6 +49,9 @@
 
         <!-- add your content below -->
         <div class="container">
+            <input type="text" class="testEl">
+            <button class="testing">test</button>
+            
             <h2 class="detailed-title center-align">Joshua Tree national park <a href="#">icon</a></h2>
             <div class="detailed-content">
                 <div class="banner">
@@ -61,20 +64,20 @@
                         <!-- Slider main container -->
                         <div class="swiper">
                             <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
+                            <div class="slideShowContent swiper-wrapper">
                                 <!-- Slides -->
-                                <div class="swiper-slide bg"
+                                <!-- <div class="swiper-slide slide-bg"
                                     style="background: url(https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) center no-repeat;">
                                 </div>
-                                <div class="swiper-slide bg"
+                                <div class="swiper-slide slide-bg"
                                     style="background: url(https://images.unsplash.com/photo-1552083375-1447ce886485?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) center no-repeat;">
                                 </div>
-                                <div class="swiper-slide bg"
+                                <div class="swiper-slide slide-bg"
                                     style="background: url(https://images.unsplash.com/photo-1470770903676-69b98201ea1c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80) center no-repeat;">
                                 </div>
-                                <div class="swiper-slide bg"
+                                <div class="swiper-slide slide-bg"
                                     style="background: url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1274&q=80) center no-repeat;">
-                                </div>
+                                </div> -->
                             </div>
                             <!-- If we need pagination -->
                             <div class="swiper-pagination"></div>
@@ -203,28 +206,6 @@
             $(document).ready(function () {
                 $(".sidenav").sidenav();
             });
-            // swiper
-            const swiper = new Swiper('.swiper', {
-                // Optional parameters
-                direction: 'horizontal',
-                loop: true,
-                speed: 800,
-                // If we need pagination
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-
-                autoplay: {
-                    delay: 4000,
-                    disableOnInteraction: false,
-                }
-                // // Navigation arrows
-                // navigation: {
-                //     nextEl: '.swiper-button-next',
-                //     prevEl: '.swiper-button-prev',
-                // },
-            });
 
             $('.info-content li a').click(function (e) {
                 e.preventDefault();
@@ -237,16 +218,9 @@
 
 
             // 
-            const jsonUrl = 'https://developer.nps.gov/api/v1/parks/?api_key=UeqePRwoByT73mJd2am1zFxWuD5EzcIiSw3aAMz4';
-            const Url = 'https://developer.nps.gov/api/v1/thingstodo/?parkCode=abli&limit=50&api_key=UeqePRwoByT73mJd2am1zFxWuD5EzcIiSw3aAMz4';
+            const Url = 'https://developer.nps.gov/api/v1/thingstodo?parkCode=abli&limit=50&api_key=UeqePRwoByT73mJd2am1zFxWuD5EzcIiSw3aAMz4';
 
-            fetch(jsonUrl, { method: 'get' })
-                .then((response) => {
-                    return response.json();
-                }).then((data) => {
-                    console.log(data);
-                    getthing();
-                })
+            
 
             function getthing() {
                 fetch(Url, { method: 'get' })
