@@ -98,8 +98,8 @@ const descriptionEl = document.querySelector('.description');
 const slideShowEl = document.querySelector('.slideShowContent');
 const thingsListEl = document.querySelector('.thingsList');
 
-let swiper;
 
+let swiper;
 function initSwiper() {
     swiper = new Swiper('.swiper', {
         // Optional parameters
@@ -122,8 +122,10 @@ function initSwiper() {
         //     prevEl: '.swiper-button-prev',
         // },
     });
+
 }
-// initSwiper();
+
+initSwiper();
 
 function renderParkInfo() {
 
@@ -140,8 +142,9 @@ function renderParkInfo() {
     }
     slideShowEl.innerHTML = slideImagesStr;
     // swiper
+    swiper.destroy(true , true);
     initSwiper()
-
+    
     let thingsListStr = '';
     for (let i = 0; i < thingsToDo.data.length; i++) {
         thingsListStr +=
