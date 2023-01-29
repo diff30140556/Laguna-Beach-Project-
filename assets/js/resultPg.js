@@ -1,5 +1,5 @@
-var states = ['alabama', 'alaska', 'california', 'colorado'];
-var stateCodes = ['al', 'ak', 'ca', 'co'];
+var states = ['alabama', 'alaska', 'arizona', 'arkansas', 'california', 'colorado', 'connecticut', 'delaware', 'florida', 'georgia', 'hawaii', 'idaho', 'illinois', 'indiana', 'iowa', 'kansas', 'kentucky', 'louisiana', 'maine', 'maryland', 'massachusetts', 'michigan', 'minnesota', 'mississippi', 'missouri', 'montana', 'nebraska', 'nevada', 'new hampshire', 'new jersey', 'new mexico', 'new york', 'north carolina', 'north dakota', 'ohio', 'oklahoma', 'oregon', 'pennsylvania', 'rhoade island', 'south carolina', 'south dakota', 'tennessee', 'texas', 'utah', 'vermont', 'virginia', 'washington', 'west virginia', 'wisconsin', 'wyoming'];
+var stateCodes = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
 
 
 // fetch ParksList function
@@ -39,16 +39,21 @@ function renderParkList(data) {
     var output = ''
    for (let index = 0; index < data.data.length; index++) {
     console.log(data.data[index]);
-    output += '<li>';
-    output += '<div class="description">';
-    output += '<div class="parkName">'
+    //output += '<li>';
+    output += '<div class="description" style="background: url('+data.data[index].images[0].url+') center no-repeat">';
+    output += '<a href="detailPage.html">';
+    output += '<h3 class="parkName">';
     output += data.data[index].fullName;
-    output += '</div>';
+    output += '</h3>';
+    //output += '<div class="parkImage">'
+    //output += '<img src="'+data.data[index].images[0].url+ '" width="300">';
+    //output += '</div>';
     output += '<div class="parkDescription">';
     output += data.data[index].description;
     output += '</div>';
+    output += '</a>';
     output += '</div>';
-    output += '</li>';
+    //output += '</li>';
    }
    console.log(output); 
    document.querySelector('.resultsList').innerHTML = output;

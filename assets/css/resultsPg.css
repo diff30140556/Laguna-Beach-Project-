@@ -48,12 +48,24 @@ header {
     background: rgb(255, 213, 186);
 }
 
-.resultsList li {
+.resultsList {
+    margin: 0 20px;
+}
+.description {
+    height: 500px;
+    background-size: cover!important;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+.description a{
+    color: white;
+}
+/*.resultsList li {
     height: 500px;
     border: 1px solid black;
     display: flex;
     align-items: flex-end;
-    /* justify-content: center; */
+    justify-content: center; 
   }
   
   .description {
@@ -72,5 +84,5 @@ header {
   .parkDescription {
     border: 1px solid black;
     padding: 10px;
-  }
+  }*/
   
