@@ -2,6 +2,7 @@
 const testing = document.querySelector('.testing');
 const testEl = document.querySelector('.testEl');
 
+
 let APIkey = 'ec7477b8bf25c30e53208ecbb6569748';
 let googleMapKey = 'AIzaSyB-QQrxaDEz45HXnkR8cfVkwMfc07tC7-c';
 
@@ -15,7 +16,7 @@ function getCoordinates() {
     let city = testEl.value;
     // chaining the parameters with API url
     let geocodingBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
-    let geocodingParameters = '?address=' + city + '&components=country:US' + '&key=';
+    let geocodingParameters = '?address=' + city + '&components=country:US&language=en' + '&key=';
     let geocodingAPIurl = geocodingBaseUrl + geocodingParameters + googleMapKey;
 
     // fetching data from the API
@@ -97,9 +98,13 @@ const titleEl = document.querySelector('.detailed-title');
 const descriptionEl = document.querySelector('.description');
 const slideShowEl = document.querySelector('.slideShowContent');
 const thingsListEl = document.querySelector('.thingsList');
+const thingsTitleEl = document.querySelector('.thinsTitle');
+const embedMapEl = document.querySelector('.locationMap');
+const foreCastEl = document.querySelector('.forecast');
+const addressEl = document.querySelector('.addressInfo');
+
 
 let swiper;
-
 function initSwiper() {
     swiper = new Swiper('.swiper', {
         // Optional parameters
@@ -111,7 +116,7 @@ function initSwiper() {
             el: '.swiper-pagination',
             clickable: true,
         },
-    
+
         autoplay: {
             delay: 4000,
             disableOnInteraction: false,
@@ -122,13 +127,15 @@ function initSwiper() {
         //     prevEl: '.swiper-button-prev',
         // },
     });
+
 }
-// initSwiper();
+
+initSwiper();
 
 function renderParkInfo() {
 
 
-    titleEl.innerHTML = specificPark.fullName + `<a href="#" data-code="` + specificPark.parkCode + `">icon</a>`;
+    titleEl.innerHTML = specificPark.fullName + `<a href="#" data-code="` + specificPark.parkCode + `"><i class="favorite-icon material-icons red-text text-accent-1">favorite</i></a>`;
     descriptionEl.innerHTML = `<p>` + specificPark.description + `</p>`;
 
     let slideImagesStr = '';
@@ -140,27 +147,170 @@ function renderParkInfo() {
     }
     slideShowEl.innerHTML = slideImagesStr;
     // swiper
+    swiper.destroy(true, true);
     initSwiper()
 
+    // info
+
+
     let thingsListStr = '';
+    if (thingsToDo.data.length !== 0) {
+        thingsTitleEl.textContent = 'Things To Do';
+    } else {
+        thingsTitleEl.textContent = '';
+    }
+
     for (let i = 0; i < thingsToDo.data.length; i++) {
         thingsListStr +=
-            `<li class="hoverable thingsItem row">
-        <div class="thingsDescription col s6">
-            <h4>`+ thingsToDo.data[i].title + `</h4>
-            <p>`+ thingsToDo.data[i].shortDescription + `</p>
-        </div>
+        `<li class="hoverable thingsItem row">
+            <div class="thingsDescription col s6">
+                <h4>`+ thingsToDo.data[i].title + `</h4>
+                <p>`+ thingsToDo.data[i].shortDescription + `</p>
+            </div>
         <div class="thingsImage col s6">
             <img src="`+ thingsToDo.data[i].images[0].url + `" alt="` + thingsToDo.data[i].images[0].altText + `">
         </div>
-    </li>`
+        </li>`
     }
     thingsListEl.innerHTML = thingsListStr;
 
+    let locationName = specificPark.fullName.replaceAll(' ', '+');
+    let stateCode = specificPark.states;
+    embedMapEl.innerHTML =
+        `<iframe width="100%" height="400" frameborder="0" style="border:0"
+    referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBM3jKPwwg5VHvuiDu4hi1H-4U2jh7CmiY&q=`+ locationName + `,` + stateCode + `&language=en"
+        allowfullscreen>
+    </iframe>`
 
-
+    getWeatherInfo();
 }
 
+// calculate the time by UNIX timestamp then return
+function getDateByUNIXtimestamp(UNIXtimestamp) {
+    let time = new Date(UNIXtimestamp * 1000);
+    let month = time.getMonth() + 1;
+    let date = time.getDate();
+    let year = time.getFullYear().toString().slice(-2);
+
+    return month + '/' + date + '/' + year;
+}
+
+// function to return the weather's detail information
+function getWeatherDetail(data) {
+    let tempKelvin = data.main.temp;
+    let weatherIconCode = data.weather[0].icon;
+
+    return {
+        tempKelvin: data.main.temp,
+        fahrenheit: ((tempKelvin - 273) * 1.8 + 32).toFixed(1),
+        windSpeed: data.wind.speed,
+        humidity: data.main.humidity,
+        weatherIconUrl: 'https://openweathermap.org/img/wn/' + weatherIconCode + '@2x.png'
+    }
+}
+
+function getWeatherInfo() {
+    let weatherApiKey = 'ec7477b8bf25c30e53208ecbb6569748';
+    let lat = specificPark.latitude;
+    let lon = specificPark.longitude;
+    let parameters = '?lat=' + lat + '&lon=' + lon + '&appid=';
+    // forecast weather API url
+    let forecastBaseUrl = 'https://api.openweathermap.org/data/2.5/forecast';
+    let forecastAPIurl = forecastBaseUrl + parameters + weatherApiKey;
+    // current weather API url
+    let weatherBaseUrl = 'https://api.openweathermap.org/data/2.5/weather';
+    let weatherAPIurl = weatherBaseUrl + parameters + weatherApiKey;
+
+    let currentData = {};
+    let forecastData = {};
+    // fetching data from current weather API
+    fetch(weatherAPIurl, { method: 'get' })
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+        }).then((data => {
+            console.log(data);
+            currentData = data;
+            // fetching data from forecast weather API
+            fetch(forecastAPIurl, { method: 'get' })
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                }).then((data => {
+                    console.log(data);
+                    forecastData = data;
+                    renderWeather(currentData, forecastData);
+                }))
+
+        }))
+}
+
+function renderWeather(currentData, forecastData) {
+    let currentDateString = getDateByUNIXtimestamp(currentData.dt);
+    let currentWeatherDetail = getWeatherDetail(currentData);
+    let currentWeatherStr =
+        `<div class="foreCastItem swiper-slide">
+        <h3>`+ currentDateString + `</h3>
+        <div class="weather-icon"><img src="`+ currentWeatherDetail.weatherIconUrl + `" alt="weather-icon"></div>
+        <p>Temp: `+ currentWeatherDetail.fahrenheit + ` &#8457</p>
+        <p>Wind: `+ currentWeatherDetail.windSpeed + ` MPH</p>
+        <p>Humidity: `+ currentWeatherDetail.humidity + ` %</p>
+    </div>`;
+
+    let forecastList = '';
+    // return a new array of each day's forecast
+    let fiveDaysForecast = forecastData.list.filter(element => {
+        return element.dt_txt.includes('00:00:00');
+    });
+
+    // chaining the forecast list
+    for (let i = 0; i < fiveDaysForecast.length; i++) {
+        let forecastDateString = getDateByUNIXtimestamp(fiveDaysForecast[i].dt);
+        let forecastWeatherDetail = getWeatherDetail(fiveDaysForecast[i])
+
+        forecastList +=
+            `<div class="foreCastItem swiper-slide">
+            <h3>`+ forecastDateString + `</h3>
+            <div class="weather-icon"><img src="`+ forecastWeatherDetail.weatherIconUrl + `" alt="weather-icon"></div>
+            <p>Temp: `+ forecastWeatherDetail.fahrenheit + ` &#8457</p>
+            <p>Wind: `+ forecastWeatherDetail.windSpeed + ` MPH</p>
+            <p>Humidity: `+ forecastWeatherDetail.humidity + ` %</p>
+        </div>`
+
+        foreCastEl.innerHTML = currentWeatherStr + forecastList;
+    }
+    weatherSwiper.destroy(true, true);
+    initWeatherSwiper();
+}
+
+let weatherSwiper;
+function initWeatherSwiper() {
+    weatherSwiper = new Swiper('.weatherSwiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        speed: 400,
+        effect: 'coverflow',
+        coverflowEffect: {
+            rotate: 30,
+            slideShadows: true,
+            depth: 200,
+            stretch: -30,
+        },
+        loopFillGroupWithBlank: true,
+        loopedSlides: 3,
+        slideToClickedSlide: true,
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+}
+initWeatherSwiper();
 
 testing.addEventListener('click', function () {
     getCoordinates();
