@@ -53,12 +53,39 @@ header {
 }
 .description {
     height: 500px;
-    background-size: cover!important;
-    padding: 10px;
+    background-size: 100% 100% !important;
     margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    pointer-events: none;
+    transition: 0.4s ease-in-out;
 }
-.description a{
+.description:has(.description-info:hover){
+    background-size: 110% 110% !important;
+}
+.description-info{
+    padding: 20px 25px;
+    display: block;
+    width: 100%;
     color: white;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
+}
+.description-info:hover{
+    text-decoration: underline;
+}
+
+.description h3{
+    font-size: 2.2em;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+}
+
+.description p{
+    font-size: 1.1em;
+    line-height: 1.5em;
+    margin: 0;
 }
 /*.resultsList li {
     height: 500px;

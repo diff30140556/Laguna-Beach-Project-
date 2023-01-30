@@ -1,7 +1,9 @@
 
 const testing = document.querySelector('.testing');
 const testEl = document.querySelector('.testEl');
-
+let resultCode = (window.location.hash.substring(1));
+let queryCode = resultCode.split('=')[1];
+console.log(queryCode);
 
 let APIkey = 'ec7477b8bf25c30e53208ecbb6569748';
 let googleMapKey = 'AIzaSyB-QQrxaDEz45HXnkR8cfVkwMfc07tC7-c';
@@ -13,10 +15,11 @@ let thingsToDo = {};
 
 function getCoordinates() {
     // expand the result area
-    let city = testEl.value;
+    let city = testEl.value.replaceAll(' ','+');
     // chaining the parameters with API url
     let geocodingBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
     let geocodingParameters = '?address=' + city + '&components=country:US&language=en' + '&key=';
+    console.log(geocodingParameters)
     let geocodingAPIurl = geocodingBaseUrl + geocodingParameters + googleMapKey;
 
     // fetching data from the API
@@ -31,21 +34,6 @@ function getCoordinates() {
 
             getStateCode(data.results[0].address_components);
         })
-
-    // let geocodingBaseUrl = 'https://api.openweathermap.org/geo/1.0/direct';
-    // let geocodingParameters = '?q='+ city + ',US&limit=10&appid=';
-    // let geocodingAPIurl = geocodingBaseUrl + geocodingParameters + APIkey;
-
-    // // fetching data from the API
-    // fetch( geocodingAPIurl, {method: 'get'} )
-    //     .then((response => {
-    //         if (response.ok){
-    //             return response.json();
-    //         }
-    //     })).then((data => {
-    //         // if there's no data, user entered the nonexistent city
-    //         console.log(data)
-    //     }))
 }
 
 function getStateCode(address) {
@@ -75,11 +63,31 @@ function getParksList(state) {
 
 }
 
-function getSpecificPark(park) {
-    console.log(park);
-    specificPark = park;
-    let code = park.parkCode;
+getSpecificPark();
 
+function getSpecificPark(park) {
+    // console.log(park);
+    // specificPark = park;
+    // let code = park.parkCode;
+    let code = queryCode;
+
+    const parkApiBase = 'https://developer.nps.gov/api/v1/parks';
+    const partApiParameters = '?parkCode=' + code + '&api_key=';
+    const parkApiKey = 'UeqePRwoByT73mJd2am1zFxWuD5EzcIiSw3aAMz4';
+    const parkApiUrl = parkApiBase + partApiParameters + parkApiKey;
+
+    fetch(parkApiUrl, { method: 'get' })
+        .then(response => {
+            return response.json();
+        }).then(data => {
+            console.log(data);
+            specificPark = data.data[0];
+            getThingsToDo(code);
+        })
+
+    }
+    
+    function getThingsToDo(code) {
     const toDoParkApiBase = 'https://developer.nps.gov/api/v1/thingstodo';
     const toDoPartApiParameters = '?parkCode=' + code + '&api_key=';
     const parkApiKey = 'UeqePRwoByT73mJd2am1zFxWuD5EzcIiSw3aAMz4';
@@ -94,6 +102,8 @@ function getSpecificPark(park) {
             renderParkInfo();
         })
 }
+
+
 const titleEl = document.querySelector('.detailed-title');
 const descriptionEl = document.querySelector('.description');
 const slideShowEl = document.querySelector('.slideShowContent');
@@ -102,6 +112,7 @@ const thingsTitleEl = document.querySelector('.thinsTitle');
 const embedMapEl = document.querySelector('.locationMap');
 const foreCastEl = document.querySelector('.forecast');
 const addressEl = document.querySelector('.addressInfo');
+const infoEl = document.querySelector('.info-content');
 
 
 let swiper;
@@ -130,12 +141,26 @@ function initSwiper() {
 
 }
 
+$('.info-content').click(function (e) {
+    e.preventDefault();
+    console.log($(e.target))
+    console.log($(this))
+    if (e.target.nodeName !== 'A'){
+        return;
+    }
+    $(e.target).toggleClass('active').parent().siblings().find('a').removeClass('active');
+
+    $(e.target).siblings('p').stop().slideToggle();
+
+    $(e.target).parent().siblings().find('p').slideUp();
+});
+
 initSwiper();
 
 function renderParkInfo() {
 
-
-    titleEl.innerHTML = specificPark.fullName + `<a href="#" data-code="` + specificPark.parkCode + `"><i class="favorite-icon material-icons red-text text-accent-1">favorite</i></a>`;
+    console.log(specificPark);
+    titleEl.innerHTML = specificPark.fullName + `<a class="favorite-link" href="#" data-code="` + specificPark.parkCode + `"><i class="favorite-icon material-icons red-text text-accent-1">favorite</i></a>`;
     descriptionEl.innerHTML = `<p>` + specificPark.description + `</p>`;
 
     let slideImagesStr = '';
@@ -151,6 +176,32 @@ function renderParkInfo() {
     initSwiper()
 
     // info
+    let feesStr = '';
+    if (specificPark.entrancePasses.length !== 0 && specificPark.entrancePasses[0].cost !== '0.00'){
+        feesStr = `$` + specificPark.entrancePasses[0].cost + `<br>
+        ` + specificPark.entrancePasses[0].description +`<br>`;
+    }
+    for ( let i = 0; i < specificPark.entranceFees.length; i++){
+        feesStr += `$`+ specificPark.entranceFees[i].cost +`<br>
+        `+ specificPark.entranceFees[i].description +`<br>`; 
+    }
+
+    let weatherStr = ''
+    if (specificPark.weatherInfo.includes('http')) {
+        weatherStr = 'N/A';
+    }else{
+        weatherStr = specificPark.weatherInfo;
+    }
+    infoEl.innerHTML = 
+    `<li><a class="info-slide" href="#">Weather ></a>
+        <p>`+ weatherStr +`</p>
+    </li>
+    <li><a class="info-slide" href="#">Fees & Passes ></a>
+        <p>`+ feesStr +`</p>
+    </li>
+    <li><a class="info-slide" href="#">Website For More Info ></a>
+        <p><a class="webUrl" target href="_blank"`+ specificPark.url +`">Park Website</a></p>
+    </li>`
 
 
     let thingsListStr = '';
