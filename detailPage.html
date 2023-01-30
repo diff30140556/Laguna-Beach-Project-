@@ -50,8 +50,9 @@
             <input type="text" class="testEl">
             <button class="testing">test</button>
             
-            <h2 class="detailed-title center-align">Joshua Tree national park <a href="#"><i class="favorite-icon material-icons red-text text-accent-1">favorite</i>
+            <h2 class="detailed-title center-align">Joshua Tree national park <a class="favorite-link" href="#"><i class="favorite-icon material-icons red-text text-accent-1">favorite</i>
             </a></h2>
+
             <div class="detailed-content">
                 <div class="banner">
                     <div class="description">
@@ -93,50 +94,40 @@
 
                     <div class="info-container">
                         <ul class="info-content">
-                            <li><a href="#">Physical Address ></a>
-                                <p class="addressInfo">47050 Generals Highway<br>Three Rivers, CA 93271</p>
-                            </li>
-                            <li><a href="#">Directions ></a>
-                                <p>Two highways enter the parks. Hwy 180 from Fresno leads east to Kings Canyon National
-                                    Park, then continues 30 miles east to Cedar Grove. Hwy 198 from Visalia leads east
-                                    to Sequoia National Park via Three Rivers. Inside the parks, Highway 198 becomes the
-                                    Generals Highway, which connects 198 to 180. Vehicles over 22-feet long should enter
-                                    the parks via Highway 180. In winter, the Generals Highway between the parks often
-                                    closes. Chains may be required on park roads. No roads cross these parks east to
-                                    west.</p>
-                            </li>
                             <li><a href="#">Weather ></a>
-                                <p>Because of the extreme elevation range in these parks, weather conditions vary widely
-                                    between areas. In summer, the sequoia groves have comfortable temperatures and the
-                                    foothills are hot and dry. Snow lingers on high-mountain passes well into summer. In
-                                    fall, some areas close or reduce their hours. Winter brings snow to sequoia groves
-                                    and rain to the foothills. Be prepared for tire chain requirements. Spring is a
-                                    great time to hike in the foothills and snow begins to melt at higher elevations.
-                                </p>
+                                <p><span>Vehicle Pass - $35.00</span><br>This pass is valid for 1-7 days and includes
+                                    everyone traveling in a single vehicle for Sequoia & Kings Canyon National Parks and
+                                    Hume Lake District of Sequoia National Forest/Giant Sequoia National Monument.</p>
                             </li>
                             <li><a href="#">Fees & Passes ></a>
                                 <p><span>Vehicle Pass - $35.00</span><br>This pass is valid for 1-7 days and includes
                                     everyone traveling in a single vehicle for Sequoia & Kings Canyon National Parks and
                                     Hume Lake District of Sequoia National Forest/Giant Sequoia National Monument.</p>
                             </li>
-                            <li><a href="#">Visitor Centers ></a>
-                                <p>This visitor center is one mile past the Ash Mountain entrance station along the
-                                    Generals Highway. Stop here for information, maps, books, gifts, and restrooms.
-                                    Browse exhibits about the ecology and human history of the foothills, and join a
-                                    free ranger-led program.</p>
-                            </li>
-                            <li><a href="#">Internet & Cellular Access ></a>
-                                <p>Free public WiFi is offered by the park at two visitor centers: Kings Canyon Visitor
-                                    Center in Grant Grove Village, and Foothills Visitor Center near the Sequoia park
-                                    entrance. No password is needed. WiFi is also available for guests of park lodges.
-                                    Cell service varies in the park but is very limited. AT&T service is available near
-                                    the Sequoia Park entrance. Verizon service is available in the Grant Grove area.
-                                    Service is occasionally available in other areas, depending on conditions.</p>
-                            </li>
                         </ul>
                     </div>
+                </div>
 
-                    <div class="thingsToDo">
+                <div class="weatherForecast">
+                    <h3 class="center-align">Weather Forecast</h3>
+                    <div class="slideWeatherBox">
+                        <div class="slideWeather">
+                            <!-- Slider main container -->
+                            <div class="weatherSwiper">
+                                <!-- Additional required wrapper -->
+                                <div class="slideShowContent swiper-wrapper forecast">
+                                    <!-- Slides -->
+                                    
+                                </div>
+                                <!-- If we need navigation buttons -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thingsToDo">
                         <h3 class="center-align thinsTitle"></h3>
                         <ul class="thingsList">
                             <li class="hoverable thingsItem row">
@@ -159,28 +150,9 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                </div>
 
-                    <div class="weatherForecast">
-                        <h3 class="center-align">Weather Forecast</h3>
-                        <div class="slideWeatherBox">
-                            <div class="slideWeather">
-                                <!-- Slider main container -->
-                                <div class="weatherSwiper">
-                                    <!-- Additional required wrapper -->
-                                    <div class="slideShowContent swiper-wrapper forecast">
-                                        <!-- Slides -->
-                                        
-                                    </div>
-                                    <!-- If we need navigation buttons -->
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="map">
+                <div class="map">
                         <h3 class="center-align">Location</h3>
                         <div class="embedMap locationMap">
                             <iframe width="100%" height="400" frameborder="0" style="border:0"
@@ -189,12 +161,10 @@
                                 allowfullscreen>
                             </iframe>
                         </div>
-                    </div>
                 </div>
-
             </div>
-
         </div>
+
         <footer class="footer">Laguna Beach Project</footer>
     </div>
         <!-- Jquery CDN -->
@@ -214,14 +184,7 @@
                 $(".sidenav").sidenav();
             });
 
-            $('.info-content li a').click(function (e) {
-                e.preventDefault();
-                $(this).toggleClass('active').parent().siblings().find('a').removeClass('active');
-
-                $(this).siblings('p').stop().slideToggle();
-
-                $(this).parent().siblings().find('p').slideUp();
-            });
+            
 
 
             // 
