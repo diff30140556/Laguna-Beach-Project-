@@ -7,18 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Laguna Beach Project</title>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- materialize google Icon -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!-- Normalize CSS reset -->
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <!-- materialize google Icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!-- swipe -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -52,7 +50,8 @@
             <input type="text" class="testEl">
             <button class="testing">test</button>
             
-            <h2 class="detailed-title center-align">Joshua Tree national park <a href="#">icon</a></h2>
+            <h2 class="detailed-title center-align">Joshua Tree national park <a href="#"><i class="favorite-icon material-icons red-text text-accent-1">favorite</i>
+            </a></h2>
             <div class="detailed-content">
                 <div class="banner">
                     <div class="description">
@@ -95,7 +94,7 @@
                     <div class="info-container">
                         <ul class="info-content">
                             <li><a href="#">Physical Address ></a>
-                                <p>47050 Generals Highway<br>Three Rivers, CA 93271</p>
+                                <p class="addressInfo">47050 Generals Highway<br>Three Rivers, CA 93271</p>
                             </li>
                             <li><a href="#">Directions ></a>
                                 <p>Two highways enter the parks. Hwy 180 from Fresno leads east to Kings Canyon National
@@ -138,7 +137,7 @@
                     </div>
 
                     <div class="thingsToDo">
-                        <h3 class="center-align">Things To Do</h3>
+                        <h3 class="center-align thinsTitle"></h3>
                         <ul class="thingsList">
                             <li class="hoverable thingsItem row">
                                 <div class="thingsDescription col s6">
@@ -164,19 +163,27 @@
 
                     <div class="weatherForecast">
                         <h3 class="center-align">Weather Forecast</h3>
-                        <ul class="forecast row">
-                            <li class="col s2">forecast</li>
-                            <li class="col s2">forecast</li>
-                            <li class="col s2">forecast</li>
-                            <li class="col s2">forecast</li>
-                            <li class="col s2">forecast</li>
-                        </ul>
+                        <div class="slideWeatherBox">
+                            <div class="slideWeather">
+                                <!-- Slider main container -->
+                                <div class="weatherSwiper">
+                                    <!-- Additional required wrapper -->
+                                    <div class="slideShowContent swiper-wrapper forecast">
+                                        <!-- Slides -->
+                                        
+                                    </div>
+                                    <!-- If we need navigation buttons -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="map">
                         <h3 class="center-align">Location</h3>
-                        <div class="embedMap">
-                            <iframe width="60%" height="400" frameborder="0" style="border:0"
+                        <div class="embedMap locationMap">
+                            <iframe width="100%" height="400" frameborder="0" style="border:0"
                             referrerpolicy="no-referrer-when-downgrade"
                                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBM3jKPwwg5VHvuiDu4hi1H-4U2jh7CmiY&q=Abraham+Lincoln+Birthplace+National+Historical+Park,KY"
                                 allowfullscreen>
