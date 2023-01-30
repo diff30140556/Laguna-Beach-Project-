@@ -54,12 +54,15 @@ header {
 
 /* Css below for detailPage.html */
 .container {
+    padding: 40px 0;
     border: 1px solid #000;
 }
 
 .detailed-title {
+    font-size: 3em;
     border: 1px solid #000;
     margin-bottom: 70px;
+    position: relative;  
 }
 
 .banner {
@@ -70,8 +73,8 @@ header {
 
 .description {
     position: absolute;
+    min-height: 80%;
     width: 45%;
-    height: 80%;
     left: -8%;
     top: -8%;
     z-index: 10;
@@ -113,7 +116,7 @@ header {
     align-items: center;
 }
 
-.info-content li a{
+.info-slide{
     display: block;
     text-decoration: unset;
     border: 1px solid #ddd;
@@ -130,10 +133,10 @@ header {
     margin-bottom: 60px;
 }
 
-.info-content li a:hover, .info-content li a.active{
+.info-slide:hover, .info-slide.active{
     background: rgba(125, 125, 125, 0.7);
 }
-.info-content li a.active{
+.info-slide.active{
     border-radius: 6px 6px 0px 0px;
 }
 
@@ -145,6 +148,15 @@ header {
     line-height: 26px;
     background: rgba(255, 255, 255, 0.6);
     border-radius: 0px 0px 6px 6px;
+}
+
+.webUrl{
+    padding: 5px 10px;
+    font-weight: 600;
+}
+
+.webUrl:hover{
+    color: #005999;
 }
 
 .embedMap{
@@ -174,8 +186,13 @@ header {
     flex-direction: column;
     justify-content: center;
 }
+.thingsDescription h4{
+    font-size: 1.6em;
+}
 .thingsDescription p{
     font-size: 1.2em;
+    overflow-y:auto ;
+    padding-right: 15px;
 }
 
 .thingsImage{
@@ -192,7 +209,6 @@ header {
 .thingsImage img{
     display: block;
     min-width: 50%;
-    height:350px;
     transition: 0.4s ease-in-out;
 }
 
@@ -213,15 +229,15 @@ header {
 .slideWeatherBox::after{
     position: absolute;
     content: '';
-    box-shadow: 0px 0px 15px 20px rgb(255, 255, 255);
-    height: 70%;
+    box-shadow: 0px 0px 15px 20px rgb(255, 213, 186);
+    height: 80%;
     left: 0;
 }
 .slideWeatherBox::before{
     position: absolute;
     content: '';
-    box-shadow: 0px 0px 15px 20px rgb(255, 255, 255);
-    height: 70%;
+    box-shadow: 0px 0px 15px 20px rgb(255, 213, 186);
+    height: 80%;
     right: 0;
     z-index: 999;
 }
@@ -235,7 +251,6 @@ header {
     background: rgb(116, 165, 255);
     border-radius: 8px;
     font-size: 1em;
-    /* text-align: center; */
 }
 
 .swiper-button-prev,
@@ -267,11 +282,15 @@ header {
 }
 
 .favorite-icon{
-    transform: translateY(-15px);
     font-size: 1em;
     transition: 0.2s ease-in-out;
 }
+.favorite-link{
+    position: absolute;
+    right: 5%;
+    top: -80%;
+}
 
-.favorite-icon:hover{
+.favorite-link:hover .favorite-icon{
     color: #ff2121 !important;
 }
