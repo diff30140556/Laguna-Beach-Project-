@@ -15,6 +15,7 @@ function init() {
 // 
 function getParksList(text) {
     // using the search input value to find the qualified parks data
+    text=text.replace('%20', ' ');
     var index = states.indexOf(text);
     var stateCode = stateCodes[index];
     console.log(stateCode);
@@ -38,10 +39,10 @@ function renderParkList(data) {
     // render the qualified parks data on the browser
     var output = ''
    for (let index = 0; index < data.data.length; index++) {
-    console.log(data.data[index]);
+    //console.log(data.data[index]);
     //output += '<li>';
     output += '<div class="description" style="background: url('+data.data[index].images[0].url+') center no-repeat">';
-    output += '<a href="detailPage.html">';
+    output += '<a href="detailPage.html?parkcode=">';
     output += '<h3 class="parkName">';
     output += data.data[index].fullName;
     output += '</h3>';
@@ -55,11 +56,19 @@ function renderParkList(data) {
     output += '</div>';
     //output += '</li>';
    }
-   console.log(output); 
+     console.log(output); 
    document.querySelector('.resultsList').innerHTML = output;
 
 }
 
+function showDetails(park) {
+    console.log('show details');
+   // window.location.href = 'detailPage.html' 
+   // var text = window.location.hash.substring(1);
+   // text = JSON.parse(text);
+     console.log(park);
 
+    getSpecificPark(park);
+}
 
 init();
