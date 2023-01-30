@@ -90,7 +90,7 @@ function getSpecificPark(park) {
     function getThingsToDo(code) {
     const toDoParkApiBase = 'https://developer.nps.gov/api/v1/thingstodo';
     const toDoPartApiParameters = '?parkCode=' + code + '&api_key=';
-    const parkApiKey = 'UeqePRwoByT73mJd2am1zFxWuD5EzcIiSw3aAMz4';
+    // const parkApiKey = 'UeqePRwoByT73mJd2am1zFxWuD5EzcIiSw3aAMz4';
     const toDoParkApiUrl = toDoParkApiBase + toDoPartApiParameters + parkApiKey;
 
     fetch(toDoParkApiUrl, { method: 'get' })
