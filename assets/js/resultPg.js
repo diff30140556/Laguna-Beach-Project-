@@ -78,11 +78,11 @@ function getParksList(stateCode) {
 let defaultImage = 'https://i.imgur.com/I2hSMJP.jpg';
 let srcStr = '';
 
-function getUrl(url) {//圖片事件加載
+function getUrl(url) {
     var img = new Image();
     img.onload = function () {
         if (this.complete == true){
-            // 改了这里
+            
             console.log('pass')
             
         }
