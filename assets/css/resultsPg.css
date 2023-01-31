@@ -9,21 +9,22 @@
 
 /* CSS code below for fixed header and footer styling, common across all pages */
 header {
-    height: 100px;
     width: 100%;
 }
 
 .nav-bar {
     background: rgba(0, 0, 0, 0.3);
-    padding: 0 20px;
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 99;
+    height: 70px;
+    padding: 5px 20px;
 }
 
 .brand-logo {
-    background: #000;
+    display: block;
+    background: url(/assets/images/L.P\ original\ logo.png) center no-repeat;
+    background-size: contain;
     overflow: hidden;
     width: 90px;
     height: 100%;
@@ -36,6 +37,10 @@ header {
     margin: 0;
 }
 
+nav ul a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 .footer {
     text-align: center;
     border: 1px solid #000;
@@ -45,42 +50,84 @@ header {
 }
 
 /* Background color common on all pages except landing page */
-.wrap{
+
+
+/*Code below for results list styling. Materialize/CSS styling conflict on background image format  overrided by !important. */
+/* Add CSS for fixed header and footer */
+
+
+body {
     background: rgb(255, 213, 186);
 }
 
-/*Code below for results list styling. Materialize/CSS styling conflict on background image format  overrided by !important. */
+.resultsSection{
+    max-width: 850px;
+    margin: 0 auto;
+}
+
 .resultsList {
     margin: 0 20px;
 }
+
 .description {
     height: 500px;
-    background-size: cover!important;
+    background-size: 100% 100% !important;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    pointer-events: none;
+    transition: 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
 }
-.description a{
-    padding: 20px 25px;
+
+.description:has(.description-info:hover) {
+    background-size: 110% 110% !important;
+}
+
+.description-info {
+    padding: 20px;
     display: block;
     width: 100%;
     color: white;
     background: rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
 }
 
-.description a:hover{
+.description-info:hover {
     text-decoration: underline;
 }
 
-.description h3{
+.description h3 {
     font-size: 2.2em;
-    margin: 0 0 20px 0;
     font-weight: 600;
+    margin: 0;
 }
 
-.description p{
+.description p {
+    margin: 20px 0 0 0;
     font-size: 1.1em;
     line-height: 1.5em;
-    margin: 0;
+}
+
+.sidenav-overlay{
+    z-index: 900;
+}
+
+
+
+
+
+  
+@media only screen and (max-width: 600px){
+    .parkDescription{
+        display: none;
+    }
+    .description{
+        height: 300px;
+    }
+    .description-info{
+        padding: 10px 20px;
+    }
 }

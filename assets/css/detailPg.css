@@ -4,29 +4,27 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-}
-
-body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
 /* CSS code below for fixed header and footer styling, common across all pages */
 header {
-    height: 100px;
     width: 100%;
 }
 
 .nav-bar {
     background: rgba(0, 0, 0, 0.3);
-    padding: 0 20px;
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 99;
+    height: 70px;
+    padding: 5px 20px;
 }
 
 .brand-logo {
-    background: #000;
+    display: block;
+    background: url(/assets/images/L.P\ original\ logo.png) center no-repeat;
+    background-size: contain;
     overflow: hidden;
     width: 90px;
     height: 100%;
@@ -37,6 +35,10 @@ header {
     white-space: nowrap;
     text-indent: 101%;
     margin: 0;
+}
+
+nav ul a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .footer {
@@ -55,7 +57,7 @@ header {
 
 /* Styling code below for details page */
 .container {
-    padding: 40px 0;
+    padding: 20px 0;
     border: 1px solid #000;
 }
 
@@ -90,12 +92,13 @@ header {
 }
 
 .slideShowPic {
+    border-radius: 10px;
     width: 70%;
     transform: translateX(5%);
+    overflow: hidden;
 }
 
 .swiper {
-    border-radius: 10px;
     height: 400px;  
 }
 
@@ -172,6 +175,7 @@ header {
     box-shadow: rgb(116, 115, 115) 0 1px 5px 0.2px;
     border-radius: 10px;
     overflow: hidden;
+    padding: 0 !important;
 }
 .thingsItem:nth-child(even){
     flex-direction: row-reverse; 
@@ -254,6 +258,13 @@ header {
     font-size: 1em;
 }
 
+.foreCastItem:hover{
+    cursor: grab;
+}
+.foreCastItem:active{
+    cursor: grabbing;
+}
+
 .swiper-button-prev,
 .swiper-button-next
 {
@@ -295,4 +306,62 @@ header {
 
 .favorite-link:hover .favorite-icon{
     color: #ff2121 !important;
+}
+.sidenav-overlay{
+    z-index: 900;
+}
+
+
+@media only screen and (max-width: 992px){
+    .slideShowPic{
+        width: 100%;
+        transform: unset;
+    }
+    .description{
+        width: 100%;
+        left: -2%;
+        top: unset;
+        left: unset;
+        bottom: 0;
+        position: absolute;
+        min-height: unset;
+        border-radius: unset;
+        padding: 10px 20px;
+        pointer-events: none;
+        border-radius: 0 0 10px 10px;
+    }
+    .swiper{
+        height: 500px;
+    }
+
+    .swiper-button-next{
+        right: -78%;
+    }
+    .swiper-button-prev{
+        left: -78%;
+    }
+    .thingsItem{
+        flex-direction: column !important;
+        margin: 40px 30px;
+        margin-left: unset !important;
+        height: 500px;
+        justify-content:end;
+    }
+    .thingsImage img{
+        width: 100%;
+    }
+    .thingsList{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .thingsDescription p{
+        height: 250px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .thingsItem{
+        height: 100%;
+    }
 }

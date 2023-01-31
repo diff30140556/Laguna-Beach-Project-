@@ -1,9 +1,8 @@
 
 const testing = document.querySelector('.testing');
 const testEl = document.querySelector('.testEl');
-let resultCode = (window.location.hash.substring(1));
-let queryCode = resultCode.split('=')[1];
-console.log(queryCode);
+const iconEl = document.querySelector('.favorite-link');
+
 
 let APIkey = 'ec7477b8bf25c30e53208ecbb6569748';
 let googleMapKey = 'AIzaSyB-QQrxaDEz45HXnkR8cfVkwMfc07tC7-c';
@@ -11,6 +10,18 @@ let googleMapKey = 'AIzaSyB-QQrxaDEz45HXnkR8cfVkwMfc07tC7-c';
 let stateCodeArray = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
 let specificPark = {};
 let thingsToDo = {};
+
+let favoriteData = JSON.parse(localStorage.getItem('favorite')) || [];
+
+init()
+
+function init() {
+    let resultCode = (window.location.hash.substring(1));
+    let queryCode = resultCode.split('=')[1];
+    console.log(queryCode);
+    getSpecificPark(queryCode);
+
+}
 
 
 function getCoordinates() {
@@ -63,9 +74,8 @@ function getParksList(state) {
 
 }
 
-getSpecificPark();
 
-function getSpecificPark(park) {
+function getSpecificPark(queryCode) {
     // console.log(park);
     // specificPark = park;
     // let code = park.parkCode;
@@ -82,11 +92,15 @@ function getSpecificPark(park) {
         }).then(data => {
             console.log(data);
             specificPark = data.data[0];
+            getThingsToDo(code);
         })
 
+    }
+    
+    function getThingsToDo(code) {
     const toDoParkApiBase = 'https://developer.nps.gov/api/v1/thingstodo';
     const toDoPartApiParameters = '?parkCode=' + code + '&api_key=';
-    // const parkApiKey = 'UeqePRwoByT73mJd2am1zFxWuD5EzcIiSw3aAMz4';
+    const parkApiKey = 'UeqePRwoByT73mJd2am1zFxWuD5EzcIiSw3aAMz4';
     const toDoParkApiUrl = toDoParkApiBase + toDoPartApiParameters + parkApiKey;
 
     fetch(toDoParkApiUrl, { method: 'get' })
@@ -98,6 +112,8 @@ function getSpecificPark(park) {
             renderParkInfo();
         })
 }
+
+
 const titleEl = document.querySelector('.detailed-title');
 const descriptionEl = document.querySelector('.description');
 const slideShowEl = document.querySelector('.slideShowContent');
@@ -155,7 +171,7 @@ initSwiper();
 
 function renderParkInfo() {
 
-
+    console.log(specificPark);
     titleEl.innerHTML = specificPark.fullName + `<a class="favorite-link" href="#" data-code="` + specificPark.parkCode + `"><i class="favorite-icon material-icons red-text text-accent-1">favorite</i></a>`;
     descriptionEl.innerHTML = `<p>` + specificPark.description + `</p>`;
 
@@ -209,12 +225,12 @@ function renderParkInfo() {
 
     for (let i = 0; i < thingsToDo.data.length; i++) {
         thingsListStr +=
-        `<li class="hoverable thingsItem row">
-            <div class="thingsDescription col s6">
+        `<li class="hoverable thingsItem row col s12 m5 l12">
+            <div class="thingsDescription col s12 l6">
                 <h4>`+ thingsToDo.data[i].title + `</h4>
                 <p>`+ thingsToDo.data[i].shortDescription + `</p>
             </div>
-        <div class="thingsImage col s6">
+        <div class="thingsImage col s12 l6">
             <img src="`+ thingsToDo.data[i].images[0].url + `" alt="` + thingsToDo.data[i].images[0].altText + `">
         </div>
         </li>`
@@ -349,7 +365,6 @@ function initWeatherSwiper() {
         },
         loopFillGroupWithBlank: true,
         loopedSlides: 3,
-        slideToClickedSlide: true,
         // Navigation arrows
         navigation: {
             nextEl: '.swiper-button-next',
@@ -359,6 +374,26 @@ function initWeatherSwiper() {
 }
 initWeatherSwiper();
 
-testing.addEventListener('click', function () {
-    getCoordinates();
-});
+
+titleEl.addEventListener('click', addToFavorite);
+
+function addToFavorite(e) {
+    e.preventDefault();
+    console.log(e.target.nodeName)
+    if (e.target.nodeName !== 'A' && e.target.nodeName !== 'I'){
+        return;
+    }
+    console.log(specificPark)
+    let recordObj = {};
+    recordObj.name = specificPark.fullName;
+    recordObj.img = specificPark.images[0].url;
+    recordObj.code = specificPark.parkCode;
+
+    favoriteData.push(recordObj);
+
+    saveToLocal();
+}
+
+function saveToLocal() {
+    localStorage.setItem('favorite', JSON.stringify(favoriteData));
+}
