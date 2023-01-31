@@ -115,6 +115,16 @@ body {
     z-index: 900;
 }
 
+.pageBox{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.page i{
+    pointer-events: none;
+}
+
 
 
 

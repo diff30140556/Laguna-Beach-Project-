@@ -364,4 +364,7 @@ nav ul a:hover {
     .thingsItem{
         height: 100%;
     }
+    .thingsDescription p{
+        height: unset;
+    }
 }
