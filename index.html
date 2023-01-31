@@ -29,19 +29,20 @@
         <header>
             <nav class="nav-bar">
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">
+                    <a href="index.html" class="brand-logo">
                         <h1 class="title">Laguna Beach Project</h1>
                     </a>
 
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
+                            class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="#">Favorites</a></li>
+                        <li><a href="favorites.html">Favorites</a></li>
                     </ul>
                 </div>
             </nav>
-
+            
             <ul class="sidenav" id="mobile-demo">
-                <li><a href="#">Favorites</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
             </ul>
         </header>
 
@@ -68,6 +69,7 @@
     <!-- Custom JS -->
     <script src="./assets/js/script.js"></script>
     <script>
+        // Navbar function
         $(document).ready(function () {
             $(".sidenav").sidenav();
         });

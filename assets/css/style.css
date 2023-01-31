@@ -93,5 +93,8 @@ nav ul a:hover {
 }
 
 .sidenav-overlay{
-  z-index: 900;
+  z-index: 900 !important;
+}
+
+.sidenav{
 }
