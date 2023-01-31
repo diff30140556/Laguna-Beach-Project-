@@ -107,8 +107,8 @@ function renderParkList(data) {
 
     getUrl(src, data)
     
-    output += '<div class="description" style="background: url('+src+') center no-repeat">';
-    output += '<a href="detailPage.html#parkcode='+ data.data[index].parkCode +'">';
+    output += '<div class="description hoverable" style="background: url('+src+') center no-repeat">';
+    output += '<a class="description-info" href="detailPage.html#parkcode='+ data.data[index].parkCode +'">';
     output += '<h3 class="parkName">';
     output += data.data[index].fullName;
     output += '</h3>';

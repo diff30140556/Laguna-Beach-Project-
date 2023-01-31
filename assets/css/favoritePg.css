@@ -9,21 +9,22 @@
 
 /* Add CSS for fixed header and footer */
 header {
-    height: 100px;
     width: 100%;
 }
 
 .nav-bar {
     background: rgba(0, 0, 0, 0.3);
-    padding: 0 20px;
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 99;
+    height: 70px;
+    padding: 5px 20px;
 }
 
 .brand-logo {
-    background: #000;
+    display: block;
+    background: url(/assets/images/L.P\ original\ logo.png) center no-repeat;
+    background-size: contain;
     overflow: hidden;
     width: 90px;
     height: 100%;
@@ -36,6 +37,10 @@ header {
     margin: 0;
 }
 
+nav ul a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 .footer {
     text-align: center;
     border: 1px solid #000;
@@ -44,22 +49,73 @@ header {
     color: #fff;
 }
 
-.wrap{
+/* Add CSS for fixed header and footer */
+
+
+body {
     background: rgb(255, 213, 186);
 }
 
-.resultsList {
+.favoriteList {
     display: flex;
     justify-content: center;
+    /* flex-wrap: wrap; */
 }
-.resultsList li {
+
+.description {
+    height: 350px;
+    background-size: 100% 100% !important;
+    margin: 0 10px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    pointer-events: none;
+    transition: 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 0 !important;
+}
+
+.resultsSection{
+    /* max-width: 850px;
+    margin: 0 auto; */
+}
+
+.description:has(.description-info:hover) {
+    background-size: 110% 110% !important;
+}
+
+.description-info {
+    padding: 20px;
+    display: block;
+    width: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
+}
+
+.description-info:hover {
+    text-decoration: underline;
+}
+
+.description h3 {
+    font-size: 2em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.sidenav-overlay{
+    z-index: 900;
+}
+
+
+
+/*.resultsList li {
     height: 500px;
     border: 1px solid black;
     display: flex;
     align-items: flex-end;
-    width: 40%;
-    margin: 0 20px;
-    /* justify-content: center; */
+    justify-content: center; 
   }
   
   .description {
@@ -78,5 +134,14 @@ header {
   .parkDescription {
     border: 1px solid black;
     padding: 10px;
-  }
+  }*/
+
   
+@media only screen and (max-width: 600px){
+    .description{
+        height: 320px;
+    }
+    .favoriteList{
+        display: block;
+    }
+}
