@@ -87,13 +87,7 @@ let srcStr = '';
 function getUrl(url) {
     var img = new Image();
     img.onload = function () {
-<<<<<<< HEAD
         if (this.complete == true) {
-            // 改了这里
-=======
-        if (this.complete == true){
-            
->>>>>>> main
             console.log('pass')
 
         }
@@ -186,55 +180,6 @@ init();
 
 // pagination
 
-function pagination(num1) {
-    let len = stateParksArr.length;
-    let num2 = (num1 - 1) * contentLen; //分業的第一筆資料
-    let num3 = num1 * contentLen; //分業的最後一筆資料
-
-    if (num3 > num.length) {
-        num3 = num.length;
-    }
-
-    for (let i = num2; i < num3; i++) {
-        let liList =
-            `<li>
-              <div class="pic" style="background: url(${num[i].Picture1})center no-repeat;background-size: 110%;">
-                <h2>${num[i].Name}</h2>
-                <h3>${printAreaName}</h3>
-              </div>
-              <div class="detail">
-                <div class="time">
-                  <div class="icon">
-                    <img src="https://hexschool.github.io/JavaScript_HomeWork/assets/icons_clock.png" alt="clock_icon" class="clock">
-                  </div>
-                  <p>${num[i].Opentime}</p>
-                </div>
-                <div class="address">
-                  <div class="icon">
-                    <img src="https://hexschool.github.io/JavaScript_HomeWork/assets/icons_pin.png" alt="pin_icon" class="pin">
-                  </div>
-                  <p>${num[i].Add}</p>
-                </div>
-                <div class="contact">
-                  <div class="number">
-                    <div class="icon">
-                      <img src="https://hexschool.github.io/JavaScript_HomeWork/assets/icons_phone.png" alt="phone_icon" class="phone">
-                    </div>
-                    <p>${num[i].Tel}</p>
-                  </div>
-                  <div class="visit">
-                    <div class="icon">
-                      <img src="https://hexschool.github.io/JavaScript_HomeWork/assets/icons_tag.png" alt="ticket_icon">
-                    </div>
-                    <p>參觀票價詳情<span class="ticketPopInfo">${num[i].Ticketinfo}</span></p>
-                  </div>
-                </div>
-              </div>
-            </li>`
-
-        str += liList;
-    }
-}
 
 pageEl.addEventListener('click', switchPage);
 
