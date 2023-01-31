@@ -10,7 +10,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Add CSS for fixed header and footer */
+/* CSS code below for fixed header and footer styling, common across all pages */
 header {
     height: 100px;
     width: 100%;
@@ -47,12 +47,13 @@ header {
     color: #fff;
 }
 
+/*Background color, common on all pages except landing page*/
 .wrap{
     background: rgb(255, 213, 186);
 }
 
 
-/* Css below for detailPage.html */
+/* Styling code below for details page */
 .container {
     padding: 40px 0;
     border: 1px solid #000;
@@ -281,6 +282,7 @@ header {
     width: 40px;
 }
 
+/*Styling properties for favorite icon below */
 .favorite-icon{
     font-size: 1em;
     transition: 0.2s ease-in-out;

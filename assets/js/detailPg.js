@@ -149,6 +149,8 @@ $('.info-content').click(function (e) {
     $(e.target).parent().siblings().find('p').slideUp();
 });
 
+
+
 initSwiper();
 
 function renderParkInfo() {
