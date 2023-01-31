@@ -7,7 +7,13 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Add CSS for fixed header and footer */
+i,
+i::before,
+i::after{
+    font-family: unset;
+}
+
+/* CSS code below for fixed header and footer styling, common across all pages */
 header {
     width: 100%;
 }
@@ -43,28 +49,31 @@ nav ul a:hover {
 
 .footer {
     text-align: center;
-    border: 1px solid #000;
     padding: 10px 0;
     background: rgb(31, 31, 31);
     color: #fff;
 }
 
+/*Background color, common on all pages except landing page*/
 .wrap{
     background: rgb(255, 213, 186);
 }
 
 
-/* Css below for detailPage.html */
+/* Styling code below for details page */
 .container {
     padding: 20px 0;
-    border: 1px solid #000;
 }
 
 .detailed-title {
+    display: inline-block;
     font-size: 3em;
-    border: 1px solid #000;
-    margin-bottom: 70px;
     position: relative;  
+}
+
+.parkTitle{
+    text-align: center;
+    margin: 40px 0 70px;
 }
 
 .banner {
@@ -75,7 +84,7 @@ nav ul a:hover {
 
 .description {
     position: absolute;
-    min-height: 80%;
+    /* min-height: 80%; */
     width: 45%;
     left: -8%;
     top: -8%;
@@ -233,7 +242,7 @@ nav ul a:hover {
 .slideWeatherBox::after{
     position: absolute;
     content: '';
-    box-shadow: 0px 0px 15px 20px rgb(255, 213, 186);
+    box-shadow: 0px 0px 15px 22px rgb(255, 213, 186);
     height: 80%;
     left: 0;
 }
@@ -247,7 +256,6 @@ nav ul a:hover {
 }
 
 .foreCastItem{
-    border: 1px solid #000;
     margin-left: 0 !important;
     padding: 0 10px;
     margin: 10px 5px;
@@ -292,18 +300,20 @@ nav ul a:hover {
     width: 40px;
 }
 
+/*Styling properties for favorite icon below */
 .favorite-icon{
     font-size: 1em;
     transition: 0.2s ease-in-out;
 }
 .favorite-link{
     position: absolute;
-    right: 5%;
-    top: -80%;
+    top: -60%;
+    right: -20%;
 }
 
-.favorite-link:hover .favorite-icon{
+.favorite-link:hover .hoverNo{
     color: #ff2121 !important;
+    background: #000;
 }
 .sidenav-overlay{
     z-index: 900;
@@ -361,5 +371,8 @@ nav ul a:hover {
 @media only screen and (max-width: 600px){
     .thingsItem{
         height: 100%;
+    }
+    .thingsDescription p{
+        height: unset;
     }
 }

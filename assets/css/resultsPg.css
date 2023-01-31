@@ -7,7 +7,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Add CSS for fixed header and footer */
+/* CSS code below for fixed header and footer styling, common across all pages */
 header {
     width: 100%;
 }
@@ -49,8 +49,11 @@ nav ul a:hover {
     color: #fff;
 }
 
-/* Add CSS for fixed header and footer */
-
+/* Background color common on all pages except landing page */
+/*Code below for results list styling. Materialize/CSS styling conflict on background image format  overrided by !important. */
+.container{
+    min-height: 100vh;
+}
 
 body {
     background: rgb(255, 213, 186);
@@ -68,17 +71,18 @@ body {
 .description {
     height: 500px;
     background-size: 100% 100% !important;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    pointer-events: none;
     transition: 0.3s ease-in-out;
     border-radius: 10px;
     overflow: hidden;
+    color: #fff;
 }
 
-.description:has(.description-info:hover) {
+.description:hover {
+    text-decoration: underline;
     background-size: 110% 110% !important;
 }
 
@@ -86,13 +90,8 @@ body {
     padding: 20px;
     display: block;
     width: 100%;
-    color: white;
     background: rgba(0, 0, 0, 0.5);
     pointer-events: auto;
-}
-
-.description-info:hover {
-    text-decoration: underline;
 }
 
 .description h3 {
@@ -111,35 +110,29 @@ body {
     z-index: 900;
 }
 
-
-
-/*.resultsList li {
-    height: 500px;
-    border: 1px solid black;
+.pageBox{
     display: flex;
-    align-items: flex-end;
-    justify-content: center; 
-  }
-  
-  .description {
-    border: 1px solid black;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding: 40px 0;
-  }
-  
-  .parkName {
-    border: 1px solid black;
-    padding: 10px;
-  }
-  
-  .parkDescription {
-    border: 1px solid black;
-    padding: 10px;
-  }*/
+    justify-content: center;
+    margin-bottom: 20px;
+}
 
-  
+.pageBox li{
+    margin: 0 5px;
+}
+
+.pageBox .hoverBtn:hover{
+    background: rgb(254, 174, 174);
+}
+
+.pagination{
+    width: unset    ;
+}
+
+.page i{
+    pointer-events: none;
+}
+
+/* RWD setting */
 @media only screen and (max-width: 600px){
     .parkDescription{
         display: none;

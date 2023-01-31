@@ -33,7 +33,8 @@
                         <h1 class="title">Laguna Beach Project</h1>
                     </a>
 
-                    <a href="favorites.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
+                            class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="favorites.html">Favorites</a></li>
                     </ul>
@@ -41,35 +42,24 @@
             </nav>
 
             <ul class="sidenav" id="mobile-demo">
-                <li><a href="#">Favorites</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
             </ul>
         </header>
 
         <div class="container">
-            <!-- add your content below -->
-            <h2 class="state-title center-align">
-                California
-            </h2>
+            <h2 class="state-title center-align"></h2>
+            
             <div class="resultsSection">
-                <div class="resultsList"  >
-                    <li>
-                        <div class="description">
-                            <div class="parkName">
-                                Yosemite
-                            </div>
-                            <div class="parkDescription">
-                                Park in California Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eaque
-                                vero alias in assumenda fugiat recusandae explicabo repellat. Accusamus et obcaecati
-                                distinctio aperiam aspernatur illum odit officiis ad quis earum!
-                            </div>
-    
-                        </div>
-                    </li>
-    
+                <div class="resultsList">
                 </div>
             </div>
+
+            <div class="pageBox">
+                <ul class="pagination page">
+                </ul>
+            </div>
         </div>
-        
+
         <footer class="footer">
             Laguna Beach Project
         </footer>
@@ -88,7 +78,7 @@
     <!-- Custom JS -->
     <script src="./assets/js/resultPg.js"></script>
     <script>
-
+        // navbar function
         $(document).ready(function () {
             $('.sidenav').sidenav();
         });

@@ -7,7 +7,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Add CSS for fixed header and footer */
+/* CSS code below for fixed header and footer styling, common across all pages*/
 header {
     width: 100%;
     position: fixed;
@@ -50,8 +50,7 @@ nav ul a:hover {
     color: #fff;
 }
 
-/* Add CSS for fixed header and footer */
-
+/* CSS code for background cover/image format and styling */
 .content {
   height: 100vh;
   background: url(https://images.unsplash.com/photo-1515601915049-08c8836c2204?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
@@ -67,6 +66,7 @@ nav ul a:hover {
   width: 100%;
 }
 
+/* CSS code for search section format/styling, including transparecy properties */
 .search-area {
   margin: 0 auto;
   border: 1px solid #000;
@@ -93,5 +93,8 @@ nav ul a:hover {
 }
 
 .sidenav-overlay{
-  z-index: 900;
+  z-index: 900 !important;
+}
+
+.sidenav{
 }

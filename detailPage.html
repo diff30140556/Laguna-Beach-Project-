@@ -47,16 +47,16 @@
 
         <!-- add your content below -->
         <div class="container">
-            
-            <h2 class="detailed-title center-align">Joshua Tree national park <a class="favorite-link" href="#"><i class="favorite-icon material-icons red-text text-accent-1">favorite</i>
-            </a></h2>
 
+            <div class="parkTitle">
+                <h2 class="detailed-title center-align"></h2>
+            </div>
+            <!-- <i class="fa-regular fa-heart red-text"></i>
+            <i class="fa-solid fa-heart red-text"></i> -->
             <div class="detailed-content">
+
                 <div class="banner">
                     <div class="description">
-                        <p>description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis praesentium
-                            alias hic placeat voluptate repellat, in cumque iure consequuntur aperiam eius adipisci quod
-                            accusamus dolor? Eos tenetur dolorum vero id.</p>
                     </div>
                     <div class="slideShowPic">
                         <!-- Slider main container -->
@@ -64,58 +64,31 @@
                             <!-- Additional required wrapper -->
                             <div class="slideShowContent swiper-wrapper">
                                 <!-- Slides -->
-                                <div class="swiper-slide slide-bg"
-                                    style="background: url(https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) center no-repeat;">
-                                </div>
-                                <div class="swiper-slide slide-bg"
-                                    style="background: url(https://images.unsplash.com/photo-1552083375-1447ce886485?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) center no-repeat;">
-                                </div>
-                                <div class="swiper-slide slide-bg"
-                                    style="background: url(https://images.unsplash.com/photo-1470770903676-69b98201ea1c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80) center no-repeat;">
-                                </div>
-                                <div class="swiper-slide slide-bg"
-                                    style="background: url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1274&q=80) center no-repeat;">
-                                </div>
                             </div>
                             <!-- If we need pagination -->
                             <div class="swiper-pagination"></div>
-
-                            <!-- If we need navigation buttons -->
-                            <!-- <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div> -->
                         </div>
                     </div>
                 </div>
 
                 <div class="info" id="info">
-                    <h3 class="center-align">Basic Information</h3>
+                    <h3 class="basicInfo center-align"></h3>
 
                     <div class="info-container">
                         <ul class="info-content">
-                            <li><a href="#">Weather ></a>
-                                <p><span>Vehicle Pass - $35.00</span><br>This pass is valid for 1-7 days and includes
-                                    everyone traveling in a single vehicle for Sequoia & Kings Canyon National Parks and
-                                    Hume Lake District of Sequoia National Forest/Giant Sequoia National Monument.</p>
-                            </li>
-                            <li><a href="#">Fees & Passes ></a>
-                                <p><span>Vehicle Pass - $35.00</span><br>This pass is valid for 1-7 days and includes
-                                    everyone traveling in a single vehicle for Sequoia & Kings Canyon National Parks and
-                                    Hume Lake District of Sequoia National Forest/Giant Sequoia National Monument.</p>
-                            </li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="weatherForecast">
-                    <h3 class="center-align">Weather Forecast</h3>
+                    <h3 class="center-align weatherTitle"></h3>
                     <div class="slideWeatherBox">
                         <div class="slideWeather">
                             <!-- Slider main container -->
                             <div class="weatherSwiper">
                                 <!-- Additional required wrapper -->
                                 <div class="slideShowContent swiper-wrapper forecast">
-                                    <!-- Slides -->
-                                    
+                                <!-- Slides -->
                                 </div>
                                 <!-- If we need navigation buttons -->
                                 <div class="swiper-button-prev"></div>
@@ -128,36 +101,12 @@
                 <div class="thingsToDo">
                         <h3 class="center-align thinsTitle"></h3>
                         <ul class="thingsList row">
-                            <li class="hoverable thingsItem row">
-                                <div class="thingsDescription col s6">
-                                    <h4>View the Lincoln Family Bible</h4>
-                                    <p>"Bibles were often the only book that frontier families owned. This Bible, Printed in 1799, belonged to the Lincoln family. Abraham Lincoln recorded his own birth, and other important dates in the bibles pages. "</p>
-                                </div>
-                                <div class="thingsImage col s6">
-                                    <img src="https://www.nps.gov/common/uploads/cropped_image/31C5B57D-A452-3D2A-4819C229412C47D9.jpg" alt="">
-                                </div>
-                            </li>
-
-                            <li class="hoverable thingsItem row">
-                                <div class="thingsDescription col s6">
-                                    <h4>"Big Sink Trail"</h4>
-                                    <p>""Big Sink Trail has three loops that all connect at the picnic area. The parking for it is across the street on 31 E from the park entrance."</p>
-                                </div>
-                                <div class="thingsImage col s6">
-                                    <img src="https://www.nps.gov/common/uploads/cropped_image/7EB3D4E2-C6CA-4A5F-1D0B62881A9F22B0.jpg" alt="">
-                                </div>
-                            </li>
                         </ul>
                 </div>
 
                 <div class="map">
-                        <h3 class="center-align">Location</h3>
+                        <h3 class="center-align mapTitle"></h3>
                         <div class="embedMap locationMap">
-                            <iframe width="100%" height="400" frameborder="0" style="border:0"
-                            referrerpolicy="no-referrer-when-downgrade"
-                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBM3jKPwwg5VHvuiDu4hi1H-4U2jh7CmiY&q=Abraham+Lincoln+Birthplace+National+Historical+Park,KY"
-                                allowfullscreen>
-                            </iframe>
                         </div>
                 </div>
             </div>

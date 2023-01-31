@@ -29,27 +29,28 @@
         <header>
             <nav class="nav-bar">
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">
+                    <a href="index.html" class="brand-logo">
                         <h1 class="title">Laguna Beach Project</h1>
                     </a>
 
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
+                            class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="#">Favorites</a></li>
+                        <li><a href="favorites.html">Favorites</a></li>
                     </ul>
                 </div>
             </nav>
-
+            
             <ul class="sidenav" id="mobile-demo">
-                <li><a href="#">Favorites</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
             </ul>
         </header>
 
-        <!-- add your content below -->
+        
         <div class="content">
             <div class="search-section">
                 <div class="search-area">
-                    <input class="search-input" type="text" placeholder="enter your state.." / required>
+                    <input class="search-input" type="text" placeholder="enter your state.."  required>
                     <a class="waves-effect waves-light btn search-btn" href="#">Search</a>
                 </div>
             </div>
@@ -68,6 +69,7 @@
     <!-- Custom JS -->
     <script src="./assets/js/script.js"></script>
     <script>
+        // Navbar function
         $(document).ready(function () {
             $(".sidenav").sidenav();
         });

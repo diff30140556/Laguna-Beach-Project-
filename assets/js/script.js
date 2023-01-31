@@ -1,21 +1,15 @@
+// store elements in variables
 const searchBtnEl = document.querySelector('.search-btn');
 const searchInputEl = document.querySelector('.search-input');
 
-
-
-// trigger the fetch function when the button got clicked
+// search function
 function search() {
-// you have to get the value of the input first, then navigate to another page then render the result on the browser
-var query = searchInputEl.value
-    if(query === ''){
+    let query = searchInputEl.value
+    if (query === '') {
         return;
     }
     window.location.href = 'results.html' + '#' + query
-
 }
 
-
-
-
-
+// Event listener
 searchBtnEl.addEventListener('click', search);
