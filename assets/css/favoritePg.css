@@ -59,13 +59,14 @@ body {
 .favoriteList {
     display: flex;
     justify-content: center;
-    /* flex-wrap: wrap; */
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .description {
     height: 350px;
     background-size: 100% 100% !important;
-    margin: 0 10px 50px;
+    margin: 0 auto 50px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
