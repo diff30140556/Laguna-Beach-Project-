@@ -10,33 +10,25 @@
 /* Add CSS for fixed header and footer */
 header {
     width: 100%;
+    position: fixed;
 }
 
 .nav-bar {
     background: rgba(0, 0, 0, 0.3);
-    /* padding: 0 20px; */
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 99;
-    height: 80px;
+    height: 70px;
     padding: 5px 20px;
-    line-height: 70px;
 }
 
 .brand-logo {
-  display: block;
-    background: url(https://i.imgur.com/cNkyRGs.png) center no-repeat;
+    display: block;
+    background: url(/assets/images/L.P\ original\ logo.png) center no-repeat;
     background-size: contain;
     overflow: hidden;
     width: 90px;
     height: 100%;
-    transform: scale(1);
-    transition: 0.2s ease-in-out;
-  }
-  
-  .brand-logo:hover{
-  transform: scale(1.1);
 }
 
 .title {
@@ -46,8 +38,8 @@ header {
     margin: 0;
 }
 
-nav ul a:hover{
-background-color: rgba(0, 0, 0, 0.3);
+nav ul a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .footer {
@@ -98,4 +90,8 @@ background-color: rgba(0, 0, 0, 0.3);
 .search-btn{
   margin-top: 10px;
   border-radius: 10px;
+}
+
+.sidenav-overlay{
+  z-index: 900;
 }

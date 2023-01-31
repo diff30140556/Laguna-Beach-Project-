@@ -8,77 +8,87 @@
     <title>Laguna Beach Project</title>
 
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- materialize google Icon -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!-- Normalize CSS reset -->
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
 
     <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- custom CSS -->
-    <link rel="stylesheet" href="./Laguna-Beach-Project-/assets/css/favoritePg.css">
+    <link rel="stylesheet" href="./assets/css/favoritePg.css" />
 </head>
 
 <body>
     <div class="wrap">
-        <header>
+        <header class="navbar-fixed">
             <nav class="nav-bar">
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">
+                    <a href="index.html" class="brand-logo">
                         <h1 class="title">Laguna Beach Project</h1>
                     </a>
 
-
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="#">Favorites</a></li>
+                        <li><a href="favorites.html">Favoristes</a></li>
                     </ul>
                 </div>
             </nav>
 
             <ul class="sidenav" id="mobile-demo">
-                <li><a href="#">Favorites</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
             </ul>
         </header>
 
-        <!-- add your content below -->
-        <h2 class="center-align">
-            Favorites
-        </h2>
-        <div class="resultsSection">
-            <ul class="resultsList">
-                <li>
-                    <div class="description">
-                        <div class="parkName">
-                            Park Name
-                        </div>
-                        <div class="parkDescription">
-                            Park Name </div>
-
-                    </div>
-                </li>
-                <li>
-                    <div class="description">
-                        <div class="parkName">
-                            Park Name
-                        </div>
-                        <div class="parkDescription">
-                            Park Name </div>
-
-                    </div>
-                </li>
-
-            </ul>
+        <div class="container">
+            <!-- add your content below -->
+            <h2 class="state-title center-align">
+                California
+            </h2>
+            <div class="resultsSection">
+                <ul class="favoriteList row">
+                    <li>
+                            <div class="description">
+                                <div class="parkName">
+                                    Yosemite
+                                </div>
+                                <div class="parkDescription">
+                                    Park in California Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eaque
+                                    vero alias in assumenda fugiat recusandae explicabo repellat. Accusamus et obcaecati
+                                    distinctio aperiam aspernatur illum odit officiis ad quis earum!
+                                </div>
+        
+                            </div>
+                    </li>
+                    <li>
+                            <div class="description">
+                                <div class="parkName">
+                                    Yosemite
+                                </div>
+                                <div class="parkDescription">
+                                    Park in California Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eaque
+                                    vero alias in assumenda fugiat recusandae explicabo repellat. Accusamus et obcaecati
+                                    distinctio aperiam aspernatur illum odit officiis ad quis earum!
+                                </div>
+        
+                            </div>
+                    </li>
+                </ul>
+    
+            </div>
         </div>
+        
         <footer class="footer">
             Laguna Beach Project
         </footer>
     </div>
+
+
 
 
     <!-- Jquery CDN -->
