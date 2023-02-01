@@ -1,88 +1,44 @@
-*,
-*::after,
-*::before {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+/* Background color common on all pages except landing page */
+/*Code below for results list styling. Materialize/CSS styling conflict on background image format  overrided by !important. */
+.container{
+    min-height: 100vh;
 }
-
-/* CSS code below for fixed header and footer styling, common across all pages */
-header {
-    width: 100%;
-}
-
-.nav-bar {
-    background: rgba(0, 0, 0, 0.3);
-    width: 100%;
-    top: 0;
-    z-index: 99;
-    height: 70px;
-    padding: 5px 20px;
-}
-
-.brand-logo {
-    display: block;
-    background: url(/assets/images/L.P\ original\ logo.png) center no-repeat;
-    background-size: contain;
-    overflow: hidden;
-    width: 90px;
-    height: 100%;
-}
-
-.title {
-    font-size: 1em;
-    white-space: nowrap;
-    text-indent: 101%;
-    margin: 0;
-}
-
-nav ul a:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.footer {
-    text-align: center;
-    border: 1px solid #000;
-    padding: 10px 0;
-    background: rgb(31, 31, 31);
-    color: #fff;
-}
-
-
-/* Add CSS for fixed header and footer */
-
 
 body {
     background: rgb(255, 213, 186);
 }
 
+.resultsSection{
+    max-width: 850px;
+    margin: 0 auto;
+}
+
 .favoriteList {
+    margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    /* flex-wrap: wrap; */
+}
+
+.favorite-item{
+    margin: 0 auto;
 }
 
 .description {
-    height: 350px;
+    height: 280px;
     background-size: 100% 100% !important;
-    margin: 0 10px 50px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    pointer-events: none;
     transition: 0.3s ease-in-out;
     border-radius: 10px;
     overflow: hidden;
-    padding: 0 !important;
+    color: #fff;
 }
 
-.resultsSection{
-    /* max-width: 850px;
-    margin: 0 auto; */
-}
-
-.description:has(.description-info:hover) {
+.description:hover {
+    text-decoration: underline;
     background-size: 110% 110% !important;
 }
 
@@ -90,17 +46,12 @@ body {
     padding: 20px;
     display: block;
     width: 100%;
-    color: white;
     background: rgba(0, 0, 0, 0.5);
     pointer-events: auto;
 }
 
-.description-info:hover {
-    text-decoration: underline;
-}
-
 .description h3 {
-    font-size: 2em;
+    font-size: 1.6em;
     font-weight: 600;
     margin: 0;
 }
@@ -109,34 +60,29 @@ body {
     z-index: 900;
 }
 
-
-
-/*.resultsList li {
-    height: 500px;
-    border: 1px solid black;
+.pageBox{
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 20px;
+}
 
-  
-  .description {
-    border: 1px solid black;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding: 40px 0;
-  }
-  
-  .parkName {
-    border: 1px solid black;
-    padding: 10px;
-  }
-  
-  .parkDescription {
-    border: 1px solid black;
-    padding: 10px;
-  }*/
+.pageBox li{
+    margin: 0 5px;
+}
 
-  
+.pageBox .hoverBtn:hover{
+    background: rgb(254, 174, 174);
+}
+
+.pagination{
+    width: unset;
+}
+
+.page i{
+    pointer-events: none;
+}
+
+/* RWD design */
 @media only screen and (max-width: 600px){
     .description{
         height: 320px;

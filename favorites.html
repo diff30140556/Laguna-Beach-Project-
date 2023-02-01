@@ -6,7 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laguna Beach Project</title>
+    <link rel="icon" href="https://i.imgur.com/SyvFhYf.png">
+    <link rel="short icon" href="https://i.imgur.com/SyvFhYf.png">
+    <meta name="description" content="Laguna Park Finder -- Explore your next adventure">
+    <meta name="keywords" content="Laguna Park Finder, United States, adventure, parks, national parks, parks searching">
 
+    <meta property="og:title" content="Laguna Park Finder">
+    <meta property="og:description" content="Laguna Park Finder, United States, adventure, parks, national parks, parks searching">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://diff30140556.github.io/Laguna-Beach-Project-/">
+    <meta property="og:image" content="https://i.imgur.com/5R3N0h2.png">
+    
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <!-- FontAwesome CDN -->
@@ -18,9 +28,8 @@
     <!-- Normalize CSS reset -->
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
 
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/favoritePg.css" />
 </head>
 
@@ -30,57 +39,35 @@
             <nav class="nav-bar">
                 <div class="nav-wrapper">
                     <a href="index.html" class="brand-logo">
-                        <h1 class="title">Laguna Beach Project</h1>
+                        <h1 class="title">Laguna Park Finder</h1>
                     </a>
 
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="favorites.html">Favoristes</a></li>
+                        <li><a href="index.html">Home</a></li>
                     </ul>
                 </div>
             </nav>
 
             <ul class="sidenav" id="mobile-demo">
-                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="index.html">Home</a></li>
             </ul>
         </header>
 
         <div class="container">
             <!-- add your content below -->
             <h2 class="state-title center-align">
-                California
+                My Favorites
             </h2>
             <div class="resultsSection">
                 <ul class="favoriteList row">
-                    <li>
-                            <div class="description">
-                                <div class="parkName">
-                                    Yosemite
-                                </div>
-                                <div class="parkDescription">
-                                    Park in California Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eaque
-                                    vero alias in assumenda fugiat recusandae explicabo repellat. Accusamus et obcaecati
-                                    distinctio aperiam aspernatur illum odit officiis ad quis earum!
-                                </div>
-        
-                            </div>
-                    </li>
-                    <li>
-                            <div class="description">
-                                <div class="parkName">
-                                    Yosemite
-                                </div>
-                                <div class="parkDescription">
-                                    Park in California Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eaque
-                                    vero alias in assumenda fugiat recusandae explicabo repellat. Accusamus et obcaecati
-                                    distinctio aperiam aspernatur illum odit officiis ad quis earum!
-                                </div>
-        
-                            </div>
-                    </li>
                 </ul>
-    
             </div>
+        </div>
+
+        <div class="pageBox">
+            <ul class="pagination page">
+            </ul>
         </div>
         
         <footer class="footer">
@@ -101,6 +88,7 @@
     <!-- Custom JS -->
     <script src="./assets/js/favoritePg.js"></script>
     <script>
+        AOS.init();
 
         $(document).ready(function () {
             $('.sidenav').sidenav();

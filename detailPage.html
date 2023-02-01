@@ -6,7 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Laguna Beach Project</title>
+    <link rel="icon" href="https://i.imgur.com/SyvFhYf.png">
+    <link rel="short icon" href="https://i.imgur.com/SyvFhYf.png">
+    <meta name="description" content="Laguna Park Finder -- Explore your next adventure">
+    <meta name="keywords" content="Laguna Park Finder, United States, adventure, parks, national parks, parks searching">
 
+    <meta property="og:title" content="Laguna Park Finder">
+    <meta property="og:description" content="Laguna Park Finder, United States, adventure, parks, national parks, parks searching">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://diff30140556.github.io/Laguna-Beach-Project-/">
+    <meta property="og:image" content="https://i.imgur.com/5R3N0h2.png">
+    
     <!-- Normalize CSS reset -->
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
     <!-- Compiled and minified CSS -->
@@ -21,6 +31,7 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/detailPg.css" />
 </head>
 
@@ -30,7 +41,7 @@
             <nav class="nav-bar">
                 <div class="nav-wrapper">
                     <a href="index.html" class="brand-logo">
-                        <h1 class="title">Laguna Beach Project</h1>
+                        <h1 class="title">Laguna Park Finder</h1>
                     </a>
 
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -49,16 +60,15 @@
         <div class="container">
 
             <div class="parkTitle">
-                <h2 class="detailed-title center-align"></h2>
+                <h2 class="detailed-title center-align" data-aos="fade-up" data-aos-duration="1200">
+                </h2>
             </div>
-            <!-- <i class="fa-regular fa-heart red-text"></i>
-            <i class="fa-solid fa-heart red-text"></i> -->
             <div class="detailed-content">
 
                 <div class="banner">
-                    <div class="description">
+                    <div class="description" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="300">
                     </div>
-                    <div class="slideShowPic">
+                    <div class="slideShowPic" data-aos="fade-left" data-aos-duration="1400" data-aos-delay="800">
                         <!-- Slider main container -->
                         <div class="swiper">
                             <!-- Additional required wrapper -->
@@ -72,7 +82,7 @@
                 </div>
 
                 <div class="info" id="info">
-                    <h3 class="basicInfo center-align"></h3>
+                    <h3 class="basicInfo center-align" data-aos="fade-up" data-aos-duration="1200"></h3>
 
                     <div class="info-container">
                         <ul class="info-content">
@@ -81,7 +91,7 @@
                 </div>
 
                 <div class="weatherForecast">
-                    <h3 class="center-align weatherTitle"></h3>
+                    <h3 class="center-align weatherTitle" data-aos="fade-up" data-aos-duration="1200" data-aos-offset="400"></h3>
                     <div class="slideWeatherBox">
                         <div class="slideWeather">
                             <!-- Slider main container -->
@@ -99,20 +109,21 @@
                 </div>
 
                 <div class="thingsToDo">
-                        <h3 class="center-align thinsTitle"></h3>
-                        <ul class="thingsList row">
-                        </ul>
+                    <h3 class="center-align thinsTitle" data-aos="fade-up" data-aos-duration="1200" data-aos-offset="600"></h3>
+                    <ul class="thingsList row"></ul>
                 </div>
 
                 <div class="map">
-                        <h3 class="center-align mapTitle"></h3>
-                        <div class="embedMap locationMap">
-                        </div>
+                    <h3 class="center-align mapTitle"></h3>
+                    <div class="embedMap locationMap"></div>
                 </div>
             </div>
         </div>
 
-        <footer class="footer">Laguna Beach Project</footer>
+        <footer class="footer">
+            <h6>Laguna Park Finder</h6>
+            <p>Copyright &copy 2023 All Right Reserved</p>
+        </footer>
     </div>
         <!-- Jquery CDN -->
         <script src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -130,30 +141,6 @@
             $(document).ready(function () {
                 $(".sidenav").sidenav();
             });
-
-            
-
-
-            // 
-            const Url = 'https://developer.nps.gov/api/v1/thingstodo?parkCode=abli&limit=50&api_key=UeqePRwoByT73mJd2am1zFxWuD5EzcIiSw3aAMz4';
-
-            
-
-            function getthing() {
-                fetch(Url, { method: 'get' })
-                    .then((response) => {
-                        return response.json();
-                    }).then((data) => {
-                        console.log(data);
-                    })
-            }
-
-            // map
-            let key = 'AIzaSyBM3jKPwwg5VHvuiDu4hi1H-4U2jh7CmiY';
-            let link = 'https://www.google.com/maps/embed/v1/place?'
-            let para = '&center=37.5858662,-85.67330523"'
-            
-            
         </script>
 </body>
 

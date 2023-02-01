@@ -87,22 +87,23 @@ function renderParkList(page) {
         maxIndex = len;
     }
     
-    var output = '';
+    let output = '';
     // rendering data on the browser
     for (let i = minIndex; i < maxIndex; i++) {
         // image url
         src = (stateParksArr[i].images[0].url)
         output +=
-            `<a class="description hoverable" href="detailPage.html#parkcode=` + stateParksArr[i].parkCode + `" style="background: url(` + src + `) center no-repeat">
+            `<li><a class="description hoverable" href="detailPage.html#parkcode=` + stateParksArr[i].parkCode + `" style="background: url(` + src + `) center no-repeat">
             <div class="description-info">
                 <h3 class="parkName">`+ stateParksArr[i].fullName + `</h3>
                 <div class="parkDescription">
                     <p>`+ stateParksArr[i].description + `</p>
                 </div>
             </div>
-        </a>`;
+        </a></li>`;
     }
     resultListEl.innerHTML = output;
+    AOS.init();
 }
 
 // pagination function
@@ -145,6 +146,11 @@ function pageStyling(e) {
             break;
 
         case e === totalPages && e > 1:
+            pageEl.childNodes[e + 3].classList.add('disabled');
+            break;
+
+        case e===1:
+            pageEl.childNodes[e - 1].classList.add('disabled');
             pageEl.childNodes[e + 3].classList.add('disabled');
             break;
     }
