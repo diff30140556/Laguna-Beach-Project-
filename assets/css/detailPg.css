@@ -1,60 +1,9 @@
-*,
-*::after,
-*::before {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
+/*Background color, common on all pages except landing page*/
 
-i,
-i::before,
-i::after{
+i,i::before,i::after{
     font-family: unset;
 }
 
-/* CSS code below for fixed header and footer styling, common across all pages */
-header {
-    width: 100%;
-}
-
-.nav-bar {
-    background: rgba(0, 0, 0, 0.3);
-    width: 100%;
-    top: 0;
-    z-index: 99;
-    height: 70px;
-    padding: 5px 20px;
-}
-
-.brand-logo {
-    display: block;
-    background: url(/assets/images/L.P\ original\ logo.png) center no-repeat;
-    background-size: contain;
-    overflow: hidden;
-    width: 90px;
-    height: 100%;
-}
-
-.title {
-    font-size: 1em;
-    white-space: nowrap;
-    text-indent: 101%;
-    margin: 0;
-}
-
-nav ul a:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.footer {
-    text-align: center;
-    padding: 10px 0;
-    background: rgb(31, 31, 31);
-    color: #fff;
-}
-
-/*Background color, common on all pages except landing page*/
 .wrap{
     background: rgb(255, 213, 186);
 }
@@ -63,11 +12,12 @@ nav ul a:hover {
 /* Styling code below for details page */
 .container {
     padding: 20px 0;
+    max-width: 1000px;
 }
 
 .detailed-title {
     display: inline-block;
-    font-size: 3em;
+    font-size: 3.5em;
     position: relative;  
 }
 
@@ -131,10 +81,10 @@ nav ul a:hover {
 .info-slide{
     display: block;
     text-decoration: unset;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(128, 187, 255);
     padding: 10px 20px 20px;
-    color: #005999;
-    background: rgba(155, 154, 154, 0.6);
+    color: #3150ff;
+    background: rgba(126, 240, 255, 0.6);
     transition: ease-in-out 0.15s;
     margin-top: 15px;
     font-weight: 600;
@@ -142,23 +92,23 @@ nav ul a:hover {
 }
 
 .info{
-    margin-bottom: 60px;
+    margin: 120px 0px;
 }
 
 .info-slide:hover, .info-slide.active{
-    background: rgba(125, 125, 125, 0.7);
+    background: rgba(41, 212, 235, 0.7);
 }
 .info-slide.active{
     border-radius: 6px 6px 0px 0px;
 }
 
 .info-content li p{
-    border: 1px solid #ddd;
+    border: 1px solid rgb(190, 255, 232);
     padding: 15px;
     display: none;
     font-size: 18px;
     line-height: 26px;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(138, 255, 236, 0.6);
     border-radius: 0px 0px 6px 6px;
 }
 
@@ -174,6 +124,11 @@ nav ul a:hover {
 .embedMap{
     display: flex;
     justify-content: center;
+    margin-bottom: 40px;
+}
+
+.thingsToDo{
+    margin: 80px 0;
 }
 
 .thingsItem{
@@ -233,6 +188,7 @@ nav ul a:hover {
 }
 
 .slideWeatherBox{
+    margin-top: 60px;
     position: relative;
     display: flex;
     align-items: center;
@@ -259,10 +215,11 @@ nav ul a:hover {
     margin-left: 0 !important;
     padding: 0 10px;
     margin: 10px 5px;
-    color: #fff;
-    background: rgb(116, 165, 255);
+    color: rgb(0, 0, 0);
+    background: rgb(154, 205, 255);
     border-radius: 8px;
-    font-size: 1em;
+    font-weight: 600;
+    font-size: 1.1em;
 }
 
 .foreCastItem:hover{
@@ -302,24 +259,23 @@ nav ul a:hover {
 
 /*Styling properties for favorite icon below */
 .favorite-icon{
-    font-size: 1em;
+    font-size: 0.9em;
     transition: 0.2s ease-in-out;
 }
 .favorite-link{
     position: absolute;
     top: -60%;
-    right: -20%;
+}
+
+.heartIcon{
+    color: #ff0000 !important;
 }
 
 .favorite-link:hover .hoverNo{
-    color: #ff2121 !important;
-    background: #000;
-}
-.sidenav-overlay{
-    z-index: 900;
+    color: #ff0000 !important;
 }
 
-
+/* RWD design */
 @media only screen and (max-width: 992px){
     .slideShowPic{
         width: 100%;
@@ -348,6 +304,7 @@ nav ul a:hover {
     .swiper-button-prev{
         left: -78%;
     }
+
     .thingsItem{
         flex-direction: column !important;
         margin: 40px 30px;

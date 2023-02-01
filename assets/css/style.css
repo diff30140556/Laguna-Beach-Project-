@@ -1,13 +1,11 @@
-*,
-*::after,
-*::before {
+/* root setting */
+*,*::after,*::before {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* CSS code below for fixed header and footer styling, common across all pages*/
 header {
     width: 100%;
     position: fixed;
@@ -24,7 +22,7 @@ header {
 
 .brand-logo {
     display: block;
-    background: url(/assets/images/L.P\ original\ logo.png) center no-repeat;
+    background: url(https://i.imgur.com/cNkyRGs.png) center no-repeat;
     background-size: contain;
     overflow: hidden;
     width: 90px;
@@ -44,57 +42,11 @@ nav ul a:hover {
 
 .footer {
     text-align: center;
-    border: 1px solid #000;
-    padding: 10px 0;
+    padding: 5px 0;
     background: rgb(31, 31, 31);
     color: #fff;
 }
 
-/* CSS code for background cover/image format and styling */
-.content {
-  height: 100vh;
-  background: url(https://images.unsplash.com/photo-1515601915049-08c8836c2204?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
-    center no-repeat;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.search-section{
-  width: 100%;
-}
-
-/* CSS code for search section format/styling, including transparecy properties */
-.search-area {
-  margin: 0 auto;
-  border: 1px solid #000;
-  /* height: 200px; */
-  max-width: 550px;
-  padding: 70px 20px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 60px;
-}
-
-.search-input {
-  display: block !important;
-  border: 1px solid #000;
-  color: #fff;
-}
-
-.search-btn{
-  margin-top: 10px;
-  border-radius: 10px;
-}
-
 .sidenav-overlay{
-  z-index: 900 !important;
-}
-
-.sidenav{
+  z-index: 990;
 }

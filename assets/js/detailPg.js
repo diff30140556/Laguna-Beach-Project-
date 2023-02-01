@@ -15,6 +15,7 @@ const mapTitleEl = document.querySelector('.mapTitle');
 let specificPark = {};
 let thingsToDo = {};
 let queryCode = '';
+let isFavorite = false;
 
 // swiper for banner images and weather
 let swiper;
@@ -82,22 +83,26 @@ function renderParkInfo() {
 
 // rendering title
 function renderTitle() {
-    console.log(favoriteData)
     let iconStr = ``
-
+    // if there's no data in favorite list, means item hasn't be added in
     if(favoriteData.length === 0){
-        iconStr = `<i class="fa-regular fa-heart favorite-icon red-text hoverNo"></i>`
+        iconStr = `<i class="fa-solid fa-heart favorite-icon red-text text-lighten-3 hoverNo"></i>`
+        isFavorite = false;
     }
-
+    // if favorite list includes the query code, means the item is in the list
     for (let i = 0; i < favoriteData.length; i++){
         if (favoriteData[i].code === queryCode){
-            iconStr = `<i class="fa-solid fa-heart favorite-icon red-text text-accent-3 hoverHas"></i>`
+            iconStr = `<i class="fa-solid fa-heart favorite-icon red-text text-lighten heartIcon"></i>`
+            isFavorite = true;
+            break;
         }else{
-            iconStr = `<i class="fa-regular fa-heart favorite-icon red-text hoverNo"></i>`
+            iconStr = `<i class="fa-solid fa-heart favorite-icon red-text text-lighten-3 hoverNo"></i>`
+            isFavorite = false;
         }
     }
 
     titleEl.innerHTML = specificPark.fullName + `<a class="favorite-link" href="#" data-code="` + specificPark.parkCode + `">`+ iconStr +`</a>`;
+    AOS.init();
 }
 
 // rendering banner
@@ -171,7 +176,7 @@ function renderThingsToDo() {
     // rendering list
     for (let i = 0; i < thingsToDo.data.length; i++) {
         thingsListStr +=
-            `<li class="hoverable thingsItem row col s12 m5 l12">
+            `<li class="hoverable thingsItem row col s12 m5 l12" data-aos="fade-up" data-aos-duration="600" data-aos-offset="500">
                 <div class="thingsDescription col s12 l6">
                     <h4>`+ thingsToDo.data[i].title + `</h4>
                     <p>`+ thingsToDo.data[i].shortDescription + `</p>
@@ -366,7 +371,22 @@ function addToFavorite(e) {
     recordObj.img = specificPark.images[0].url;
     recordObj.code = specificPark.parkCode;
 
-    favoriteData.push(recordObj);
+    // remove the park from favorite if it's exist in the list, if not add it in.
+    if(!isFavorite){
+        favoriteData.push(recordObj);
+        e.target.classList.add('heartIcon')
+        e.target.classList.remove('hoverNo', 'text-lighten-3')
+        isFavorite = !isFavorite;
+    }else{
+        favoriteData.map( (element, index) => {
+            if (element.code === queryCode) {
+                favoriteData.splice(index, 1)
+            }
+        })
+        e.target.classList.add('hoverNo', 'text-lighten-3')
+        e.target.classList.remove('heartIcon')
+        isFavorite = !isFavorite
+    }
     saveToLocal();
 }
 
@@ -378,7 +398,6 @@ function saveToLocal() {
 // function for basic info slide effect
 $('.info-content').click(function (e) {
     e.preventDefault();
-
     if (e.target.nodeName !== 'A') {
         return;
     }
